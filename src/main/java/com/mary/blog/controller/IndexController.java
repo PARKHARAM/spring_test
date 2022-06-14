@@ -27,10 +27,10 @@ public class IndexController {
 	@GetMapping("/auth/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/"; //주소 요청으로 변경
+		return "redirect:/home"; //주소 요청으로 변경
 	}
 
-	@RequestMapping(value ="/")
+	@RequestMapping(value ="/home")
 	public String test1() throws Exception{
 		return "home";
 	}
