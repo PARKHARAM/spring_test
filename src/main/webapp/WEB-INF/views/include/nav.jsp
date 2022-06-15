@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Mary Blog</title>
+  <title>HR Company</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark"> 
-  <a class="navbar-brand" href="/auth/index">Mary Blog</a>
+  <a class="navbar-brand" href="/auth/index">HR Company</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
