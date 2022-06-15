@@ -37,7 +37,10 @@ public class PostController {
 	public String postbest() {
 		return "post/best";
 	}
-	
+	@GetMapping("/post/buy")
+	public String postbuy() {
+		return "post/buy";
+	}
 	
 	@PostMapping("/post")
 	public @ResponseBody CommonRespDto<?> postProc(@RequestBody Post post) {

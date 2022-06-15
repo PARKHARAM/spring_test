@@ -15,7 +15,7 @@
 	    <h4 class="card-title">베스트1</h4>
 	    <p class="card-text">본문 미리 보기...</p>
 	    <img src="/images/black.png" alt="" / width="150px;">
-	    <a href="#" class="btn btn-primary">상세보기</a>
+	    <a href="/post/buy" class="btn btn-primary">구매하기</a>
 	  </div>
 	</div>
 	
