@@ -7,6 +7,9 @@ pipeline{
             defaultContainer 'test'
         }
     }
+    options {
+        timeout(time: 1, unit: 'HOURS') 
+    }
     
     stages{
         stage('parameter check')
@@ -21,6 +24,35 @@ pipeline{
         {
             steps{
                 checkout scm
+            }
+        }
+        stage('SonarQube analysis') {
+            steps{
+                withSonarQubeEnv('SonarQube-Server'){
+                    sh "mvn clean package"
+                    sh "mvn sonar:sonar   -Dsonar.projectKey=TEST   -Dsonar.host.url=http://34.64.176.193:9000   -Dsonar.login=8e8fa93dd72a99402a2af29972f73e9033363560"
+                }
+            }
+        }
+        
+        stage('SonarQube Quality Gate'){
+            steps{
+                timeout(time: 1, unit: 'MINUTES') {
+                    script{
+                        echo "Start~~~~"
+                        def qg = waitForQualityGate()
+                        echo "Status: ${qg.status}"
+                        if(qg.status != 'OK') {
+                            echo "NOT OK Status: ${qg.status}"
+                            //updateGitlabCommitStatus(name: "SonarQube Quality Gate", state: "failed")
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        } else{
+                            echo "OK Status: ${qg.status}"
+                            //updateGitlabCommitStatus(name: "SonarQube Quality Gate", state: "success")
+                        }
+                        echo "End~~~~"
+                    }
+                }
             }
         }
         
