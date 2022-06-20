@@ -54,7 +54,7 @@ pipeline{
                 }
             }
         }
-        
+        /*
         stage('build')
         {
             steps{
@@ -67,7 +67,7 @@ pipeline{
                 }
             }
             
-        }
+        }*/
         // 참고 url : https://cjw-awdsd.tistory.com/35
         /*************** Pulish Over SSH Plug in사용******************/
         stage('SSH transfer') {
@@ -91,7 +91,7 @@ pipeline{
                 )
             }
         }
-        
+       
                 /*************** Pulish Over SSH Plug in사용******************/
         stage('SSH transfer2') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
@@ -114,7 +114,52 @@ pipeline{
                 )
             }
         }
+
+
+        stage('server restart1 ') {
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "test2",//Jenkins 시스템 정보에 사전 입력한 서버 ID
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: "", //전송할 파일
+                                    removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
+                                    remoteDirectory: "",//배포할 위치
+                                    execCommand: "sh op.sh" //원격지에서 실행할 커맨드
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
         
+
+        stage('server restart2 ') {
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "test3",//Jenkins 시스템 정보에 사전 입력한 서버 ID
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: "", //전송할 파일
+                                    removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
+                                    remoteDirectory: "",//배포할 위치
+                                    execCommand: "sh op.sh" //원격지에서 실행할 커맨드
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
         
         
     }
