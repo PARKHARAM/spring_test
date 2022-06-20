@@ -25,7 +25,7 @@ pipeline{
             steps{
                 checkout scm
             }
-        }
+        }/*
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('SonarQube-Server'){
@@ -38,7 +38,7 @@ pipeline{
                 }
             }
         }
-        /*
+        
         stage('SonarQube Quality Gate'){
             steps{
                 timeout(time: 1, unit: 'MINUTES') {
