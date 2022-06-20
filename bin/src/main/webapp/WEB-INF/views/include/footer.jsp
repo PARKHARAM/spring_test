@@ -6,7 +6,7 @@
 
 
 
-		<div class="jumbotron text-center" style="margin-bottom:0">
+		<div class="auto-container">
 			<div class="logo">
 
 				<a href="test2"><img src="/images/HR2.png" alt="" / width="150px;"></a>

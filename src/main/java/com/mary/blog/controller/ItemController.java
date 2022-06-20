@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.model.Item;
 import com.mary.blog.service.ItemService;
-import com.mary.blog.service.PostService;
 
 import java.util.List;
 

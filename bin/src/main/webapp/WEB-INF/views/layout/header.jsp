@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Mary Blog</title>
+<title>>HR Company</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,7 +21,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="#">Mary Blog</a>
+		<a class="navbar-brand" href="/post/home">HR Company</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -36,6 +36,11 @@
 						<li class="nav-item"><a class="nav-link" href="/post/saveForm">글쓰기</a></li>
 						<li class="nav-item"><a class="nav-link" href="/user/updateForm">회원수정</a></li>
 						<li class="nav-item"><a class="nav-link" href="/auth/logout">로그아웃</a></li>
+					    <li class="nav-item"><a class="nav-link" href="/post/best">BEST</a> </li>
+       					<li class="nav-item"><a class="nav-link" href="/post/best">OUTER</a></li>
+     				    <li class="nav-item"><a class="nav-link" href="/post/best">TOP</a></li>
+      					<li class="nav-item"><a class="nav-link" href="/post/best">BOTTOM</a> </li> 
+
 					</c:otherwise>
 				</c:choose>
 						

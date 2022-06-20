@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
   servlet:
     context-path: /
  
@@ -10,7 +10,14 @@ spring:
       suffix: .jsp
   
   datasource:
-    url: jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://34.64.176.193:3306/spring?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: spring
     password: bitc5600
     driver-class-name: com.mysql.cj.jdbc.Driver 
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
