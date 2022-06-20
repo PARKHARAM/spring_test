@@ -84,7 +84,7 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    sourceFiles: "target/blog-0.0.1-SNAPSHOT.jar", //전송할 파일
+                                    sourceFiles: "target/blog-0.0.1-SNAPSHOT.war", //전송할 파일
                                     removePrefix: "target/", //파일에서 삭제할 경로가 있다면 작성
                                     remoteDirectory: "server",//배포할 위치
                                     execCommand: "" //원격지에서 실행할 커맨드
@@ -107,7 +107,7 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    sourceFiles: "target/blog-0.0.1-SNAPSHOT.jar", //전송할 파일
+                                    sourceFiles: "target/blog-0.0.1-SNAPSHOT.war", //전송할 파일
                                     removePrefix: "target/", //파일에서 삭제할 경로가 있다면 작성
                                     remoteDirectory: "server",//배포할 위치
                                     execCommand: "" //원격지에서 실행할 커맨드
