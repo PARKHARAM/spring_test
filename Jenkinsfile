@@ -29,7 +29,7 @@ pipeline{
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('SonarQube-Server'){
-                    sh "mvn clean package"
+                    sh "mvn -B -DskipTests clean package "
                     sh "mvn sonar:sonar   -Dsonar.projectKey=TEST   -Dsonar.host.url=http://34.64.176.193:9000   -Dsonar.login=8e8fa93dd72a99402a2af29972f73e9033363560"
                 }
             }
