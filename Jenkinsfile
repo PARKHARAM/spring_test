@@ -82,7 +82,7 @@ pipeline{
                                 sshTransfer(
                                     sourceFiles: "target/blog-0.0.1-SNAPSHOT.jar", //전송할 파일
                                     removePrefix: "target/", //파일에서 삭제할 경로가 있다면 작성
-                                    remoteDirectory: "",//배포할 위치
+                                    remoteDirectory: "test",//배포할 위치
                                     execCommand: "" //원격지에서 실행할 커맨드
                                 )
                             ]
@@ -105,7 +105,7 @@ pipeline{
                                 sshTransfer(
                                     sourceFiles: "target/blog-0.0.1-SNAPSHOT.jar", //전송할 파일
                                     removePrefix: "target/", //파일에서 삭제할 경로가 있다면 작성
-                                    remoteDirectory: "",//배포할 위치
+                                    remoteDirectory: "test",//배포할 위치
                                     execCommand: "" //원격지에서 실행할 커맨드
                                 )
                             ]
@@ -115,7 +115,7 @@ pipeline{
             }
         }
 
-/*
+
         stage('server restart1 ') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
@@ -129,7 +129,7 @@ pipeline{
                                     sourceFiles: "", //전송할 파일
                                     removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
                                     remoteDirectory: "",//배포할 위치
-                                    execCommand: "./op.sh" //원격지에서 실행할 커맨드
+                                    execCommand: "cd test && ls -al &&./op.sh" //원격지에서 실행할 커맨드
                                 )
                             ]
                         )
@@ -152,7 +152,7 @@ pipeline{
                                     sourceFiles: "", //전송할 파일
                                     removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
                                     remoteDirectory: "",//배포할 위치
-                                    execCommand: "./op.sh" //원격지에서 실행할 커맨드
+                                    execCommand: "cd test && ls -al &&./op.sh" //원격지에서 실행할 커맨드
                                 )
                             ]
                         )
