@@ -115,7 +115,7 @@ pipeline{
             }
         }
 
-
+/*
         stage('server restart1 ') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
@@ -160,7 +160,7 @@ pipeline{
                 )
             }
         }
-        
+        */
         
     }
     
