@@ -7,7 +7,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>번호11</th>
+        <th>번호11231</th>
         <th>code</th>
         <th>subcode</th>
         <th>상품명</th>
