@@ -38,7 +38,7 @@ pipeline{
                 }
             }
         }
-        
+        /*
         stage('SonarQube Quality Gate'){
             steps{
                 timeout(time: 1, unit: 'MINUTES') {
@@ -57,7 +57,7 @@ pipeline{
                     }
                 }
             }
-        }
+        }*/
         /*
         stage('build')
         {
@@ -74,7 +74,7 @@ pipeline{
         }*/
         // 참고 url : https://cjw-awdsd.tistory.com/35
         /*************** Pulish Over SSH Plug in사용******************/
-        stage('SSH transfer') {
+       /* stage('SSH transfer') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -95,9 +95,9 @@ pipeline{
                 )
             }
         }
-       
+       */
                 /*************** Pulish Over SSH Plug in사용******************/
-        stage('SSH transfer2') {
+        /*stage('SSH transfer2') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -118,7 +118,7 @@ pipeline{
                 )
             }
         }
-
+*/
 
         stage('server restart1 ') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
