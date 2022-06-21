@@ -13,10 +13,8 @@
 	</select>
 	
 	<select id="findById" resultType="com.mary.blog.controller.dto.ItemRespDto">
-		select p.id, p.title, p.content, u.username 
-		from item p inner join user u 
-		on p.userId=u.id 
-		where p.id=#{id}
+		SELECT price FROM item WHERE id LIKE #{id};
+
 	</select>
 	
 	<delete id="deleteContentById">

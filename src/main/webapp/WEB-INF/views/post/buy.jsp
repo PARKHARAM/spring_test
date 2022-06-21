@@ -6,10 +6,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
+
+
+     var="item" items="${ItemRespDto}"  
+     var= "a" ${item.price}
 <script>
+
   
   BootPay.request({
-      price: '35000', 
+      price: "${item.price}" , 
  
       
       application_id: "59a4d323396fa607cbe75de4",

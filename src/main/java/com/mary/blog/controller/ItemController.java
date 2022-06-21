@@ -35,9 +35,9 @@ public class ItemController {
 	@GetMapping("/post2/test")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
-	public String getPost(@PathVariable int pri, Model model) {
-		model.addAttribute("ItemRespDto", testService.test(pri));
-		return "post/item";
+	public String getPost( Model model) {
+		model.addAttribute("ItemRespDto", testService.test(1));
+		return "post/buy";
 	}
 
     

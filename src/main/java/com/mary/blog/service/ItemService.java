@@ -25,8 +25,12 @@ public class ItemService {
 	
 	@Transactional(readOnly = true)
 	public ItemRespDto test(int id) {
+		 ItemRespDto test = ItemRepository.findById(id);
+		 System.out.println(test.getPrice());
 		 return  ItemRepository.findById(id);
 	}
+	
+	
     
      public String getUser(Long userId) {
          return "{\n" +
