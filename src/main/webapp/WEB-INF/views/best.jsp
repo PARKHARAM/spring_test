@@ -12,8 +12,8 @@
 
 	<div class="card m-2" style="width:100%">
 	  <div class="card-body">
-	    <h4 class="card-title">베스트1</h4>
-	    <p class="card-text">본문 미리 보기...</p>
+	    <h4 class="card-title">black T-shirt</h4>
+	    <p class="card-text">35,000원</p>
 	    <img src="/images/black.png" alt="" / width="150px;">
 	    <a href="/post/buy" class="btn btn-primary">구매하기</a>
 	  </div>
