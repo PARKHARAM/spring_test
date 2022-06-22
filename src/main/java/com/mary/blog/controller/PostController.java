@@ -42,6 +42,25 @@ public class PostController {
 		return "post/buy";
 	}
 	
+	@GetMapping("/post/black")
+	public String postb() {
+		return "post/black";
+	}
+	@GetMapping("/post/color/pink")
+	public String postpink() {
+		return "post/pink";
+	}
+	@GetMapping("/post/color/lemon")
+	public String postlemon() {
+		return "post/lemon";
+	}
+	@GetMapping("/post/color/ivory")
+	public String postivory() {
+		return "post/ivory";
+	}
+	
+	
+	
 	@PostMapping("/post")
 	public @ResponseBody CommonRespDto<?> postProc(@RequestBody Post post) {
 		postService.글쓰기(post);
