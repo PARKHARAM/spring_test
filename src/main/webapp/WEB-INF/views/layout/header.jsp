@@ -31,10 +31,10 @@
 					<c:when test="${empty sessionScope.principal }">
 						<li class="nav-item"><a class="nav-link" href="/auth/loginForm">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/auth/joinForm">회원가입</a></li>
-						<li class="nav-item"><a class="nav-link" href="/post/best">BEST</a> </li>
-       					<li class="nav-item"><a class="nav-link" href="/post/best">OUTER</a></li>
-     				    <li class="nav-item"><a class="nav-link" href="/post/best">TOP</a></li>
-      					<li class="nav-item"><a class="nav-link" href="/post/best">BOTTOM</a> </li>
+						<li class="nav-item"><a class="nav-link" href="/auth/best">BEST</a> </li>
+       					<li class="nav-item"><a class="nav-link" href="/auth/best">OUTER</a></li>
+     				    <li class="nav-item"><a class="nav-link" href="/auth/best">TOP</a></li>
+      					<li class="nav-item"><a class="nav-link" href="/auth/best">BOTTOM</a> </li>
 					</c:when>
 					<c:otherwise>
 						<li class="nav-item"><a class="nav-link" href="/post/saveForm">글쓰기</a></li>

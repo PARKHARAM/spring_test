@@ -13,7 +13,7 @@
 
 	<div class="card m-1"  style="width:30%" >
 	  <div class="card-body" >
-	  	<a href="/post/black"><img src="/images/black.png" alt="" / width="150px;"></a>
+	  	<a href="/post/black"><img src="/images/black.png" alt=""  width="150px;"></a>
 		<h4 class="card-title">black T-shirt - post</h4>
 	    <p class="card-text">35,000원</p>
 	    
@@ -46,7 +46,7 @@
 
 	<div class="card m-1"  style="width:30%" >
 	  <div class="card-body" >
-	  	<a href="/post/color/ivory"><img src="/images/ivory.png" alt="" / width="150px;"></a>
+	  	<a href="/post/color/ivory"><img src="/images/ivory.png" alt=""  width="150px;"></a>
 		 <a href="/post/color/ivory"><h4 class="card-title">ivory T-shirt</h4></a>
 	    <p class="card-text">29,000원</p>
 
@@ -55,7 +55,7 @@
 	
 	<div class="card m-1"style="width:30%">
 	  <div class="card-body">
-	  	<a href="/post/color/lemon"><img src="/images/lemon.png" alt="" / width="150px;"></a>
+	  	<a href="/post/color/lemon"><img src="/images/lemon.png" alt=""  width="150px;"></a>
 	    <a href="/post/color/lemon"><h4 class="card-title">lemon T-shirt</h4></a>
 	    <p class="card-text">30,000원</p>
 	   
@@ -65,7 +65,7 @@
 	
 	<div class="card m-1"	 style="width:30%">
 	  <div class="card-body">
-	  	<a href="/post/color/pink"><img src="/images/pink.png" alt="" / width="150px;"></a>
+	  	<a href="/post/color/pink"><img src="/images/pink.png" alt=""  width="150px;"></a>
 	    <a href="/post/color/pink"><h4 class="card-title">pink T-shirt</h4></a>
 	    <p class="card-text">25,000원</p>
 
