@@ -32,11 +32,11 @@ public class ItemController {
 		model2.addAttribute("items", testService.getUserList());
 		return "item";
 	}
-	@GetMapping("/post2/test")
+	@GetMapping("/post/buy/{id}")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
-	public String getPost( Model model) {
-		model.addAttribute("ItemRespDto", testService.test(1));
+	public String getPost(@PathVariable int id, Model model) {
+		model.addAttribute("ItemRespDto", testService.test(id));
 		return "post/buy";
 	}
 

@@ -7,28 +7,26 @@
 
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
 
-
-     var="item" items="${ItemRespDto}"  
-     var= "a" ${item.price}
 <script>
 
-  
   BootPay.request({
-      price: "${item.price}" , 
+	 
+	  
+      price: "${ItemRespDto.price}" , 
  
       
       application_id: "59a4d323396fa607cbe75de4",
  
-      name: 'black T-shirt', //결제창에서 보여질 이름
+      name:  "${ItemRespDto.product}", //결제창에서 보여질 이름
       pg: 'nicepay',
       method: 'card', 
       show_agree_window: 0,
       items: [
           {
-              item_name: 'black T-shirt', 
+              item_name: "${ItemRespDto.product}", 
               qty: 1, 
               unique: '1', 
-              price: 35000, 
+              price: "${ItemRespDto.price}", 
           }
       ],
       order_id: '고유order_id_1234', //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.
