@@ -13,7 +13,7 @@
 	</select>
 	
 	<select id="findById" resultType="com.mary.blog.controller.dto.ItemRespDto">
-		SELECT price ,product FROM item WHERE id LIKE #{id};
+		SELECT price ,product ,id FROM item WHERE id LIKE #{id};
 
 	</select>
 	

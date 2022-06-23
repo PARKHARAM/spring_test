@@ -13,9 +13,10 @@
 	</select>
 	
 	<select id="findById" resultType="com.mary.blog.controller.dto.ReleaseDto">
-		SELECT uname ,tel FROM release_t WHERE id LIKE #{id};
+		SELECT * FROM release_t WHERE id LIKE #{id};
 
 	</select>
+
 	
 	
 </mapper>

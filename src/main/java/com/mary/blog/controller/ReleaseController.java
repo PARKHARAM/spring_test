@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.model.Release;
+import com.mary.blog.service.ItemService;
 import com.mary.blog.service.ReleaseService;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ReleaseController {
 
     private final ReleaseService testService;
+    private final ItemService itemservice;
 
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
@@ -28,8 +30,11 @@ public class ReleaseController {
 	@GetMapping("/post/release2")
 	public String postrelease2(Model model) {
 		model.addAttribute("ReleaseDto", testService.review(1));
+		model.addAttribute("items", itemservice.test(9));
 		return "post/release";
 	}
+	
+	
 
 
     

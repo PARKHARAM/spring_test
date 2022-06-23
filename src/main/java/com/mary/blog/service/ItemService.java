@@ -27,6 +27,7 @@ public class ItemService {
 	public ItemRespDto test(int id) {
 		 ItemRespDto test = ItemRepository.findById(id);
 		 System.out.println(test.getPrice());
+		 System.out.println(test.getId());
 		 return  ItemRepository.findById(id);
 	}
 	

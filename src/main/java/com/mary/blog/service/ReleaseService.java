@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 public class ReleaseService {
 
 	private ReleaseRepository ItemRepository; // DI
+
 	
 
 	@Transactional(readOnly = false)
@@ -31,6 +32,8 @@ public class ReleaseService {
 		 System.out.println(test.getUname());
 		 return  ItemRepository.findById(id);
 	}
+	
+
 	
 
 }
