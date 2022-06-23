@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mary.blog.repository.ReleaseRepository">
+	<insert id="save">
+		INSERT INTO user(username, password, email, createDate)
+		VALUES(#{username}, #{password}, #{email}, now())
+	</insert>
+	
+	<select id="nameupdate" resultType="com.mary.blog.model.Release">
+		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)
+	</select>
+	
+	<select id="findById" resultType="com.mary.blog.controller.dto.ReleaseDto">
+		SELECT uname ,tel FROM release_t WHERE id LIKE #{id};
+
+	</select>
+	
+	
+</mapper>
+
+

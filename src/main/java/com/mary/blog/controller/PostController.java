@@ -58,7 +58,7 @@ public class PostController {
 	public String postivory() {
 		return "post/ivory";
 	}
-	
+
 	
 	
 	@PostMapping("/post")

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mary.blog.config.SessionConfig;
 import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.model.User;
 import com.mary.blog.service.UserService;
@@ -38,6 +39,7 @@ public class UserController {
 			return new CommonRespDto<String>(-1,"로그인 실패");
 		}else {
 			//세션 등록
+			
 			session.setAttribute("principal", persistUser);
 			System.out.println("성공");
 			return new CommonRespDto<String>(1,"로그인 성공 ");
