@@ -104,7 +104,7 @@
 
             <!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
             <div class="xans-element- xans-product xans-product-action "><div class="btnArea">
-                    <a href="/post/buy/9" class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
+                    <a href="/post/release2" class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
                     
                    
                     
