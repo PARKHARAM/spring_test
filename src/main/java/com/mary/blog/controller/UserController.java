@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mary.blog.config.SessionConfig;
+
 import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.model.User;
 import com.mary.blog.service.UserService;
