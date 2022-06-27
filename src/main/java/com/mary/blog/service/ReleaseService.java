@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mary.blog.repository.ItemRepository;
 import com.mary.blog.repository.ReleaseRepository;
 import com.mary.blog.controller.dto.ItemRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
@@ -17,8 +18,7 @@ import lombok.AllArgsConstructor;
 public class ReleaseService {
 
 	private ReleaseRepository ItemRepository; // DI
-	
-	
+	private ItemRepository ItemRepository2;
 
 	@Transactional(readOnly = false)
 	public ReleaseDto test(int id) {
@@ -48,6 +48,8 @@ public class ReleaseService {
 	@Transactional
 	public void test(Release release, String product) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
+
+		 
 		 ReleaseDto test = ItemRepository.find2("pink-T");		
 		 ReleaseDto test2 = ItemRepository.findname("gkfka133");
 		 
