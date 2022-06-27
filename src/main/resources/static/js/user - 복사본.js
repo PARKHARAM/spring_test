@@ -16,7 +16,8 @@ let index={
 			let data={
 					
 					address:$("#address").val(),
-					tel:$("#tel").val()		
+					tel:$("#tel").val()
+						
 			};
 			
 			$.ajax({
@@ -27,7 +28,7 @@ let index={
 				dataType : "json"	
 			}).done(function(resp){
 				console.log(resp);
-				alert("회원가입이 완료되었습니다.");
+				alert("결제페이지로 이동합니다.");
 				location.href="/";
 			}).fail(function(error){
 				console.log(error);

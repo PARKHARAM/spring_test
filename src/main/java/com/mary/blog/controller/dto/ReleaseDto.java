@@ -18,4 +18,5 @@ public class ReleaseDto {
 	private int price_count;
 	private String tel;
 	private int total_price;
+	private int price;
 }

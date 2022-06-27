@@ -20,10 +20,11 @@
        <div class="valid-feedback">Valid.</div>
        <div class="invalid-feedback">Please fill out this field.</div>
      </div>
+
 <h4 class="card-title">${ReleaseDto.total_price}원 ${items.id}</h4>
 <c:set var="url" value="/post/buy/${items.id}"/>
 
-<button id="btn-save" type="button" class="btn btn-primary">회원가입완료</button>
+<button id="btn-save" type="button" class="btn btn-primary">구매</button>
 
 <a href=${url} class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
 

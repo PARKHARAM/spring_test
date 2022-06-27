@@ -40,7 +40,7 @@ public class ItemController {
 		return "post/buy";
 	}
 
-    
+
     
     /*
     public List<Item> gestUserList(Model model) {

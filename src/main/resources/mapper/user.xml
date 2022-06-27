@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="login" resultType="com.mary.blog.model.User">
-		SELECT id, username, email, profile, createDate 
+		SELECT id, username, email, profile, createDate, uname
 		FROM user 
 		WHERE username = #{username} AND password = #{password}
 	</select>

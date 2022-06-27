@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 public class ReleaseService {
 
 	private ReleaseRepository ItemRepository; // DI
-
+	
 	
 
 	@Transactional(readOnly = false)
@@ -42,16 +42,27 @@ public class ReleaseService {
 		 System.out.println(test.getTotal_price());
 		 return  ItemRepository.find2(product);
 	}
+
+	
 	
 	@Transactional
 	public void test(Release release, String product) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
-		 ReleaseDto test = ItemRepository.find2("pink-T");
+		 ReleaseDto test = ItemRepository.find2("pink-T");		
+		 ReleaseDto test2 = ItemRepository.findname("gkfka133");
+		 
 		 System.out.println("TS" + test.getProduct());
+		 System.out.println("product_n =" + release.getTotal_price());
+		 release.setUname(test2.getUname());
+		 release.setProduct_n(test.getId());
+		 release.setTotal_price(test.getPrice());
 		 release.setProduct(test.getProduct());
+		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());
 		 ItemRepository.save(release);	
 	}
 	
+	
+
 
 }

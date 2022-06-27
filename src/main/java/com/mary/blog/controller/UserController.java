@@ -41,6 +41,7 @@ public class UserController {
 			//세션 등록
 			
 			session.setAttribute("principal", persistUser);
+			System.out.println("id?"+persistUser);
 			System.out.println("성공");
 			return new CommonRespDto<String>(1,"로그인 성공 ");
 		}

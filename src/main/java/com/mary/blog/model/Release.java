@@ -20,5 +20,6 @@ public class Release {
 	private int price_count;
 	private String tel;
 	private int total_price;
+	private int product_n;
 	
 }

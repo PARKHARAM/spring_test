@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mary.blog.repository.ReleaseRepository">
 	<insert id="save">
-		INSERT INTO release_t (address, product,tel)
-		VALUES(#{address}, #{product} ,#{tel})
+		INSERT INTO release_t (uname,address, product,price_count ,tel, total_price ,product_n)
+		VALUES(#{uname},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n})
 	</insert>
 	
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
@@ -17,9 +17,12 @@
 
 	</select>
 	<select id="find2" resultType="com.mary.blog.controller.dto.ReleaseDto">
-			SELECT product, price FROM item WHERE product LIKE #{product};
+			SELECT product, price, id FROM item WHERE product LIKE #{product};
 	</select>
 
+	<select id="findname" resultType="com.mary.blog.controller.dto.ReleaseDto">
+			SELECT uname FROM user WHERE username LIKE #{username};
+	</select>
 	
 </mapper>
 
