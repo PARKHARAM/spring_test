@@ -18,7 +18,6 @@ import lombok.AllArgsConstructor;
 public class ReleaseService {
 
 	private ReleaseRepository ItemRepository; // DI
-	private ItemRepository ItemRepository2;
 
 	@Transactional(readOnly = false)
 	public ReleaseDto test(int id) {
