@@ -6,15 +6,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 
+     
      <div class="form-group">
-       <label for="username">주소 입력:</label>
+       <label for="address">주소 입력:</label>
        <input type="text" id="address" name="address" class="form-control" placeholder="주소를 입력하세요" required>
        <div class="valid-feedback">Valid.</div>
        <div class="invalid-feedback">Please fill out this field.</div>
      </div>
 
      <div class="form-group">
-       <label for="username">연락처:</label>
+       <label for="tel">연락처:</label>
        <input type="text" id="tel" name="tel" class="form-control" placeholder="연락처를 입력하세요" required>
        <div class="valid-feedback">Valid.</div>
        <div class="invalid-feedback">Please fill out this field.</div>
@@ -22,7 +23,7 @@
 <h4 class="card-title">${ReleaseDto.total_price}원 ${items.id}</h4>
 <c:set var="url" value="/post/buy/${items.id}"/>
 
-
+<button id="btn-save" type="button" class="btn btn-primary">회원가입완료</button>
 
 <a href=${url} class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
 
@@ -90,5 +91,5 @@
 	  </div>
 	</div>
 </div>
-
+<script src="/js/release.js"></script>
 <%@ include file="../layout/footer.jsp" %>

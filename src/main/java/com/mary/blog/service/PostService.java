@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.model.Post;
+import com.mary.blog.model.User;
 import com.mary.blog.repository.PostRepository;
 
 @Service // IOC
@@ -42,6 +43,8 @@ public class PostService {
 	public void 수정하기(Post post) {
 		 postRepository.update(post);
 	}
+	
+
 	
 }
 

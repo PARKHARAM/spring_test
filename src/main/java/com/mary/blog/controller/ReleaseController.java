@@ -7,8 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.model.Release;
 import com.mary.blog.service.ItemService;
 import com.mary.blog.service.ReleaseService;
@@ -34,9 +38,18 @@ public class ReleaseController {
 		return "post/release";
 	}
 	
-	
-
-
+/*	
+	@GetMapping("/post/release4")
+	public String postrelease3(Release release) {
+		testService.test(release);
+		return "post/release";
+	}
+*/
+	@PostMapping("/post/release4")
+	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody Release release, String product) { //key-value 데이터가 아님
+		testService.test(release, product);
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
     
     
     /*

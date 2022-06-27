@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mary.blog.repository.ReleaseRepository;
 import com.mary.blog.controller.dto.ItemRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
+import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 import lombok.AllArgsConstructor;
 
@@ -33,7 +34,24 @@ public class ReleaseService {
 		 return  ItemRepository.findById(id);
 	}
 	
-
+	@Transactional(readOnly = true)
+	public ReleaseDto find(String product) {
+		 ReleaseDto test = ItemRepository.find2(product);
+		 System.out.println(test.getUname());
+		 System.out.println(test.getProduct());
+		 System.out.println(test.getTotal_price());
+		 return  ItemRepository.find2(product);
+	}
+	
+	@Transactional
+	public void test(Release release, String product) {
+		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
+		 ReleaseDto test = ItemRepository.find2("pink-T");
+		 System.out.println("TS" + test.getProduct());
+		 release.setProduct(test.getProduct());
+		 System.out.println("TNEW" + release.getProduct());
+		 ItemRepository.save(release);	
+	}
 	
 
 }
