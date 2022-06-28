@@ -14,6 +14,8 @@ let index={
 		
 		save : function(){
 			let data={
+					
+					uname:$("#uname").val(),
 					username:$("#username").val(),
 					password:$("#password").val(),
 					email:$("#email").val()		
@@ -28,7 +30,7 @@ let index={
 			}).done(function(resp){
 				console.log(resp);
 				alert("회원가입이 완료되었습니다.");
-				location.href="/";
+				location.href="/home";
 			}).fail(function(error){
 				console.log(error);
 				alert("회원가입 실패");

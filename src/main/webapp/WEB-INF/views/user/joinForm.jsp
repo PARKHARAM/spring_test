@@ -7,9 +7,16 @@
    <form class="was-validated" >
      
      <div class="form-group">
-       <label for="username">Username:</label>
+       <label for="uname">이름:</label>
+       <input type="text" id="uname" class="form-control" placeholder="Enter username" required>
+       <div class="valid-feedback">Valid.</div>
+       <div class="invalid-feedback">Please fill out this field.</div>
+     </div>
+     
+     <div class="form-group">
+       <label for="username">ID:</label>
        <button type="button" id ="btn-username-check" class="btn btn-warning float-right">중복확인</button>
-       <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+       <input type="text" id="username" class="form-control" placeholder="Enter ID" required>
        <div class="valid-feedback">Valid.</div>
        <div class="invalid-feedback">Please fill out this field.</div>
      </div>
