@@ -30,6 +30,8 @@ public class ReleaseController {
     private UserService userService;
     private String x;
     private String product;
+    private Release rel;
+    
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
 		model.addAttribute("ReleaseDto", testService.test(1));
@@ -43,19 +45,21 @@ public class ReleaseController {
 		return "post/release";
 	}
 	
-/*	
-	@GetMapping("/post/release4")
+	
+	@GetMapping("/post/release12")
 	public String postrelease3(Release release) {
-		testService.test(release);
-		return "post/release";
+		x = UserController.x;
+		product = ItemController.product;
+		testService.test(rel, product, x);
+		return "post/test";
 	}
-*/
+
 	@PostMapping("/post/release4")
 	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody Release release) { //key-value 데이터가 아님
 		x = UserController.x;
 		product = ItemController.product;
-		testService.test(release, product, x);
-		
+		//testService.test(release, product, x);
+		rel = release;
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
 	
