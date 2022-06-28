@@ -21,6 +21,7 @@
        <div class="invalid-feedback">Please fill out this field.</div>
      </div>
 
+       <p id="uname">${items.product}</p>
 <h4 class="card-title">${ReleaseDto.total_price}원 ${items.id}</h4>
 <c:set var="url" value="/post/buy/${items.id}"/>
 

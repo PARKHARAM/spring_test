@@ -13,6 +13,10 @@
 		FROM user 
 		WHERE username = #{username} AND password = #{password}
 	</select>
+	<insert id="login2">
+		INSERT INTO release_t(uname) VALUES(#{uname})
+	</insert>
+
 </mapper>
 
 

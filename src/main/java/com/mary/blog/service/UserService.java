@@ -25,12 +25,17 @@ public class UserService {
 	}
 	
 	@Transactional(readOnly = true) //정합성 데이터변경을 허용하지않음 처음 트랙젝션이 시작됬을때 데이터를 유지 //select 할때 사용
-	public User 로그인(User user) {
+	public User 로그인(User user ) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
 		
 		return userRepository.login(user);
 			
 	}
 	
+	@Transactional //정합성 데이터변경을 허용하지않음 처음 트랙젝션이 시작됬을때 데이터를 유지 //select 할때 사용
+	public void 로그인2(String na) {
+		// TODO Auto-generated method stub
+		userRepository.login2(na);
+	}
 }
 

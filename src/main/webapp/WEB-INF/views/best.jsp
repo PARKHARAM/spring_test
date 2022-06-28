@@ -66,7 +66,7 @@
 	<div class="card m-1"	 style="width:30%">
 	  <div class="card-body">
 	  	<a href="/post/color/pink"><img src="/images/pink.png" alt="" width="150px;"></a>
-	    <a href="/post/color/pink"><h4 class="card-title">pink T-shirt</h4></a>
+	    <a href="/post/color/9"><h4 class="card-title">pink T-shirt</h4></a>
 	    <p class="card-text">25,000원</p>
 
 

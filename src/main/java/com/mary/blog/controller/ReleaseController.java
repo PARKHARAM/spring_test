@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.model.Release;
+import com.mary.blog.model.User;
 import com.mary.blog.service.ItemService;
 import com.mary.blog.service.ReleaseService;
+import com.mary.blog.service.UserService;
 
 import java.util.List;
 
@@ -25,7 +27,9 @@ public class ReleaseController {
 
     private final ReleaseService testService;
     private final ItemService itemservice;
-
+    private UserService userService;
+    private String x;
+    private String product;
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
 		model.addAttribute("ReleaseDto", testService.test(1));
@@ -35,6 +39,7 @@ public class ReleaseController {
 	public String postrelease2(Model model) {
 		model.addAttribute("ReleaseDto", testService.review(1));
 		model.addAttribute("items", itemservice.test(9));
+		
 		return "post/release";
 	}
 	
@@ -46,12 +51,15 @@ public class ReleaseController {
 	}
 */
 	@PostMapping("/post/release4")
-	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody Release release, String product) { //key-value 데이터가 아님
-		testService.test(release, product);
+	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody Release release) { //key-value 데이터가 아님
+		x = UserController.x;
+		product = ItemController.product;
+		testService.test(release, product, x);
+		
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
-    
-    
+	
+
     /*
     public List<Item> gestUserList(Model model) {
     	model.addAttribute("posts", postService.목록보기());

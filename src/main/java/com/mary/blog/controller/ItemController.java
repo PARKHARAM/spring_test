@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.model.Item;
 import com.mary.blog.service.ItemService;
+import com.mary.blog.service.ReleaseService;
+import com.mary.blog.service.UserService;
 
 import java.util.List;
 
@@ -20,7 +22,8 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService testService;
-
+    private final ReleaseService t;
+    public static String product;
     @GetMapping(value = "api/test")
     public String test() {
         String json = "{name : 'icecream'}";
@@ -37,7 +40,20 @@ public class ItemController {
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost(@PathVariable int id, Model model) {
 		model.addAttribute("ItemRespDto", testService.test(id));
+		product = testService.test(id).getProduct();
 		return "post/buy";
+	}
+	
+	@GetMapping("/post/color/{id}")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost2(@PathVariable int id, Model model) {
+		model.addAttribute("ItemRespDto", testService.test(id));
+		System.out.println(testService.test(id).getProduct());
+		product = testService.test(id).getProduct();
+		//String product = testService.test(id).getProduct();
+		//t.test(null, product, null);
+		return "post/release";
 	}
 
 

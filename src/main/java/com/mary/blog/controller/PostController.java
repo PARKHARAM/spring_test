@@ -46,6 +46,7 @@ public class PostController {
 	public String postb() {
 		return "post/black";
 	}
+	
 	@GetMapping("/post/color/pink")
 	public String postpink() {
 		return "post/pink";

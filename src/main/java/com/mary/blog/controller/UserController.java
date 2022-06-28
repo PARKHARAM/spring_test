@@ -16,15 +16,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.mary.blog.controller.dto.CommonRespDto;
+import com.mary.blog.controller.dto.ReleaseDto;
+import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
+import com.mary.blog.service.ReleaseService;
 import com.mary.blog.service.UserService;
 
 @Controller
 public class UserController {
 
+	
 	@Autowired
 	private UserService userService;
-	
+	private ReleaseService testService;
+    public static  String x; 
 	@PostMapping("auth/joinProc")
 	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody User user) { //key-value 데이터가 아님
 		userService.회원가입(user);
@@ -34,6 +39,7 @@ public class UserController {
 	@PostMapping("auth/loginProc")
 	public @ResponseBody CommonRespDto<?> loginProc(@RequestBody User user, HttpSession session){
 		User persistUser=userService.로그인(user);
+		
 		if(ObjectUtils.isEmpty(persistUser)) {
 			System.out.println("실패");
 			return new CommonRespDto<String>(-1,"로그인 실패");
@@ -42,6 +48,11 @@ public class UserController {
 			
 			session.setAttribute("principal", persistUser);
 			System.out.println("id?"+persistUser);
+			String na = persistUser.getUname();
+			System.out.println("id?"+na);
+			x = na;
+			//userService.로그인2(na);
+			
 			System.out.println("성공");
 			return new CommonRespDto<String>(1,"로그인 성공 ");
 		}
