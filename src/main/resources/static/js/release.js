@@ -29,7 +29,7 @@ let index={
 			}).done(function(resp){
 				console.log(resp);
 				alert("결제페이지로 이동합니다.");
-				location.href="/";
+				location.href="/post/buy";
 			}).fail(function(error){
 				console.log(error);
 				alert("회원가입 실패2");

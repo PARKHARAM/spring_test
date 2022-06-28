@@ -37,11 +37,12 @@ public class PostController {
 	public String postbest() {
 		return "post/best";
 	}
+	/*
 	@GetMapping("/post/buy")
 	public String postbuy() {
 		return "post/buy";
 	}
-	
+	*/
 	@GetMapping("/post/black")
 	public String postb() {
 		return "post/black";

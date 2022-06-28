@@ -24,6 +24,7 @@ public class ItemController {
     private final ItemService testService;
     private final ReleaseService t;
     public static String product;
+    private static int ids;
     @GetMapping(value = "api/test")
     public String test() {
         String json = "{name : 'icecream'}";
@@ -35,6 +36,15 @@ public class ItemController {
 		model2.addAttribute("items", testService.getUserList());
 		return "item";
 	}
+    
+    @GetMapping("/post/buy")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost3( Model model) {
+		model.addAttribute("ItemRespDto", testService.test(ids));
+		return "post/buy";
+	}
+    /*
 	@GetMapping("/post/buy/{id}")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
@@ -43,7 +53,7 @@ public class ItemController {
 		product = testService.test(id).getProduct();
 		return "post/buy";
 	}
-	
+	*/
 	@GetMapping("/post/color/{id}")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
@@ -51,6 +61,7 @@ public class ItemController {
 		model.addAttribute("ItemRespDto", testService.test(id));
 		System.out.println(testService.test(id).getProduct());
 		product = testService.test(id).getProduct();
+		ids = id;
 		//String product = testService.test(id).getProduct();
 		//t.test(null, product, null);
 		return "post/release";
