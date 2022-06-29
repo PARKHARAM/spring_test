@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+z<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp" %>
 <!DOCTYPE html>
@@ -76,7 +76,8 @@
 <td>[라이크먼트] 캘리포니아 썸머 링거티 pink</td>
                             <td>
                                 <span class="quantity">
-                                    <input id="quantity" name="quantity_name" style="" value="1" type="text">                                    <a href="#none"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif" alt="수량증가" class="QuantityUp up"></a>
+                                    <input id="quantity" name="quantity_name" style="" value="1" type="text">
+                                    <a href="#none"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif"  alt="수량증가"  class="QuantityUp up"></a>
                                     <a href="#none"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_down.gif" alt="수량감소" class="QuantityDown down"></a>
                                 </span>
                             </td>
@@ -104,7 +105,7 @@
 
             <!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
             <div class="xans-element- xans-product xans-product-action "><div class="btnArea">
-                    <a href="/post/color/9" class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
+                    <a href="/post/color/9" id="num"class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
                     
                    
                     
@@ -682,5 +683,5 @@ mbris("20210254113159117_dbrud89_2_01,20210254113159119_dbrud89_2_02");
 </body>
 </html>
 
-
+<script src="/js/release.js"></script>
 <%@ include file="../layout/footer.jsp" %>

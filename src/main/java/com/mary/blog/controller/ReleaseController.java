@@ -31,6 +31,7 @@ public class ReleaseController {
     private String x;
     private String product;
     private Release rel;
+    private int num;
     
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
@@ -50,7 +51,7 @@ public class ReleaseController {
 	public String postrelease3(Release release) {
 		x = UserController.x;
 		product = ItemController.product;
-		testService.test(rel, product, x);
+		testService.test(rel, product, x, num);
 		return "post/test";
 	}
 
@@ -64,6 +65,15 @@ public class ReleaseController {
 	}
 	
 
+	@PostMapping("/post/num")
+	public @ResponseBody CommonRespDto<?> num(@RequestBody Release release) { //key-value 데이터가 아님
+		
+		//product = ItemController.product;
+		//testService.test(release, product, x);
+		num= release.getPrice_count();
+		System.out.println(release.getPrice_count());
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
     /*
     public List<Item> gestUserList(Model model) {
     	model.addAttribute("posts", postService.목록보기());

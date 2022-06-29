@@ -72,7 +72,7 @@ public class ReleaseService {
 	
 	
 	@Transactional
-	public void test(Release release, String product, String user) {
+	public void test(Release release, String product, String user, int num) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
 		
 		 ReleaseDto test = ItemRepository.find2(product);		
@@ -84,8 +84,9 @@ public class ReleaseService {
 		 //release.setUname(test2.getUname());
 		 release.setUname(user);
 		 release.setProduct_n(test.getId());
-		 release.setTotal_price(test.getPrice());
+		 release.setTotal_price(test.getPrice()*num);
 		 release.setProduct(test.getProduct());
+		 release.setPrice_count(num);
 		 System.out.println("product_name=" + release.getUname());
 		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());

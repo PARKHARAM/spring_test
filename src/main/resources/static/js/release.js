@@ -6,9 +6,9 @@ let index={
 				this.save();
 			});
 			
-			$("#btn-login").on("click",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
+			$("#num").on("click",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
 				//콜백
-				this.login();
+				this.num();
 			});
 		}, //이벤트 리스닝 바인딩 함수
 		
@@ -36,29 +36,25 @@ let index={
 			});
 		}, //이벤트 리스닝 실제 실행 함수
 		
-		login : function(){
+		num : function(){
 			let data={
-					username:$("#username").val(),
-					password:$("#password").val()	
+					price_count:$("#quantity").val()
+					
 			};
 			
 			$.ajax({
 				type: "POST",
-				url: "/auth/loginProc",
+				url: "/post/num",
 				data: JSON.stringify(data),
 				contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
 				dataType : "json"	
 			}).done(function(resp){
 				console.log(resp);
-				if(resp.statusCode==1){
-					alert("로그인 성공");
-				location.href="/";
-				}else{
-					alert("아이디와 패스워드를 확인하세요.");
-				}
+				alert("상품 수량 확인");
+				location.href="/post/color/9";
 			}).fail(function(error){
 				console.log(error);
-				alert("로그인 실패");
+				alert("회원가입 실패22");
 			});
 		} //이벤트 리스닝 실제 실행 함수
 }
