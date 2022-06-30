@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class Release {
 	private int id;
 	private String uname;
+	private int postcode;
 	private String address;
 	private String product;
 	private int price_count;

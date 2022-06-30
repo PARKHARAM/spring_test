@@ -14,8 +14,8 @@ let index={
 		
 		save : function(){
 			let data={
-					
-					address:$("#address").val(),
+					postcode:$("#sample6_postcode").val(),
+					address:$("#sample6_address").val() + $("#sample6_detailAddress").val() + $("#sample6_extraAddress").val(),
 					tel:$("#tel").val()
 						
 			};

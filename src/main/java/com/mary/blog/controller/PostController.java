@@ -61,7 +61,10 @@ public class PostController {
 		return "post/ivory";
 	}
 
-	
+	@GetMapping("/post/qq")
+	public String postqq() {
+		return "post/qq";
+	}
 	
 	@PostMapping("/post")
 	public @ResponseBody CommonRespDto<?> postProc(@RequestBody Post post) {

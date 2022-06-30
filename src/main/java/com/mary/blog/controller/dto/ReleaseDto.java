@@ -19,4 +19,5 @@ public class ReleaseDto {
 	private String tel;
 	private int total_price;
 	private int price;
+	private int postcode;
 }
