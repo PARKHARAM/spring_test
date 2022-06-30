@@ -25,6 +25,7 @@ public class ItemController {
     private final ReleaseService t;
     public static String product;
     private static int ids;
+   
     @GetMapping(value = "api/test")
     public String test() {
         String json = "{name : 'icecream'}";
@@ -42,6 +43,8 @@ public class ItemController {
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost3( Model model) {
 		model.addAttribute("ItemRespDto", testService.test(ids));
+		model.addAttribute("test", ReleaseController.num);
+		System.out.println("TTSS"+ReleaseController.num);
 		return "post/buy";
 	}
     /*

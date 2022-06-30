@@ -8,11 +8,12 @@
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
 
 <script>
+ 	var price = ${test}*${ItemRespDto.price};
 
   BootPay.request({
-	 
 	  
-      price: "${ItemRespDto.price}" , 
+	  
+      price: price , 
  
       
       application_id: "59a4d323396fa607cbe75de4",
@@ -26,7 +27,7 @@
               item_name: "${ItemRespDto.product}", 
               qty: 1, 
               unique: '1', 
-              price: "${ItemRespDto.price}", 
+              price: price, 
           }
       ],
       order_id: '고유order_id_1234', //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.

@@ -31,7 +31,7 @@ public class ReleaseController {
     private String x;
     private String product;
     private Release rel;
-    private int num;
+    public static int num;
     
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {

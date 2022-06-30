@@ -56,7 +56,7 @@ z<%@ page language="java" contentType="text/html; charset=UTF-8"
 </table>
 </div>
             <p class="displaynone"><img src="/images/txt_naver.gif" alt="개인결제창을 통한 결제 시 네이버 마일리지 적립 및 사용이 가능합니다."></p>
- 
+ 			
             
 
 <!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. --><div id="totalProducts" class="">

@@ -42,6 +42,7 @@ let index={
 					
 			};
 			
+			
 			$.ajax({
 				type: "POST",
 				url: "/post/num",
@@ -51,7 +52,7 @@ let index={
 			}).done(function(resp){
 				console.log(resp);
 				alert("상품 수량 확인");
-				location.href="/post/color/9";
+				
 			}).fail(function(error){
 				console.log(error);
 				alert("회원가입 실패22");
