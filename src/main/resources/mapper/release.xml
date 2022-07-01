@@ -21,7 +21,10 @@
 	</select>
 
 	<select id="findname" resultType="com.mary.blog.controller.dto.ReleaseDto">
-			SELECT uname FROM user WHERE username LIKE #{username};
+			SELECT * FROM user WHERE username LIKE #{username};
+	</select>
+		<select id="finduser" resultType="com.mary.blog.controller.dto.ReleaseDto">
+			SELECT * FROM release_t WHERE uname LIKE #{uname} AND product_n LIKE #{product} ;
 	</select>
 	
 </mapper>

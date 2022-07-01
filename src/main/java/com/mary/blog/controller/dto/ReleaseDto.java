@@ -20,4 +20,5 @@ public class ReleaseDto {
 	private int total_price;
 	private int price;
 	private int postcode;
+	private int product_n;
 }

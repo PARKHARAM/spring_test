@@ -48,10 +48,20 @@ public class ReleaseController {
 	
 	
 	@GetMapping("/post/release12")
-	public String postrelease3(Release release) {
+	public String postrelease3(Release release, Model model) {
 		x = UserController.x;
 		product = ItemController.product;
 		testService.test(rel, product, x, num);
+		model.addAttribute("ReleaseDto", testService.findname2(x, product));
+		return "post/test";
+	}
+
+	@GetMapping("/post/rt")
+	public String postrelease32(Release release, Model model) {
+		x = UserController.x;
+		product = ItemController.product;
+		model.addAttribute("ReleaseDto", testService.findname2(x, product));
+		//model.addAttribute("ReleaseDto", testService.findname2("ppoo", "7"));
 		return "post/test";
 	}
 

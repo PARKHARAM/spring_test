@@ -7,32 +7,45 @@
 
 
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
 <div class="container">
 
 	<div class="card m-2" style="width:100%">
 	  <div class="card-body">
 	    <h4 class="card-title">결제 완료</h4>
+	    <hr />
+	    <h4 class="card-title">주문자 정보</h4>
+    
+      <tr>
+        <td>주문번호: <c:out value="${ReleaseDto.id}" /></td><br>
+        <td>이름 : <c:out value="${ReleaseDto.uname}" /></td><br>
+        <td>주소 : <c:out value="${ReleaseDto.address}" /></td> <br>
+        <td>연락처 : <c:out value="${ReleaseDto.tel}" /></td><br>
+        <td>상품명 : <c:out value="${ReleaseDto.product}" /></td><br>
+        <td>수량 : <c:out value="${ReleaseDto.price_count}" /></td><br>
+        <td>결제 금액 : <c:out value="${ReleaseDto.total_price}" /></td><br>
+		
+      </tr>
+      
 	    <p class="card-text">본문 미리 보기...</p>
 	    <a href="#" class="btn btn-primary">상세보기</a>
 	  </div>
 	</div>
 	
-	<div class="card m-2" style="width:100%">
-	  <div class="card-body">
-	    <h4 class="card-title">제목이 들어가는 자리</h4>
-	    <p class="card-text">본문 미리 보기...</p>
-	    <a href="#" class="btn btn-primary">상세보기</a>
-	  </div>
-	</div>
-	
-	<div class="card m-2" style="width:100%">
-	  <div class="card-body">
-	    <h4 class="card-title">제목이 들어가는 자리</h4>
-	    <p class="card-text">본문 미리 보기...</p>
-	    <a href="#" class="btn btn-primary">상세보기</a>
-	  </div>
-	</div>
+
 </div>
+
+</body>
+</html>
+
+
+
 
 <%@ include file="../layout/footer.jsp" %>

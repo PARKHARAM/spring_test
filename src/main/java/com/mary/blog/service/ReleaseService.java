@@ -54,20 +54,30 @@ public class ReleaseService {
 	@Transactional(readOnly = true)
 	public ReleaseDto findname(String product) {
 		 ReleaseDto test = ItemRepository.find2(product);
+		 System.out.println(test.getId());
 		 System.out.println(test.getUname());
 		 System.out.println(test.getProduct());
 		 System.out.println(test.getTotal_price());
 		 return  ItemRepository.find2(product);
 	}
 	
+	
+	
 	@Transactional(readOnly = true)
-	public void findname1(String product) {
-		System.out.println(product);
+	public ReleaseDto findname2(String uname, String product) {
+		System.out.println(uname);
 		/* ReleaseDto test = ItemRepository.find2(product);
 		 System.out.println(test.getUname());
 		 System.out.println(test.getProduct());
 		 System.out.println(test.getTotal_price());*/
-		 
+		 ReleaseDto product2= ItemRepository.find2("pink-T");
+		 System.out.println("tpss"+product2.getId());
+		 ReleaseDto test = ItemRepository.finduser(uname, product2.getId());
+		 //ReleaseDto test = ItemRepository.finduser("ppoo", 7);
+		 System.out.println("tps"+test.getUname());
+		 System.out.println("tp"+test.getProduct_n());
+		 System.out.println(test.getTotal_price());
+		 return test;
 	}
 	
 	
@@ -91,6 +101,7 @@ public class ReleaseService {
 		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());
 		 ItemRepository.save(release);	
+		 
 	}
 	
 	

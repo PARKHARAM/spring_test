@@ -40,6 +40,7 @@
   }).close(function (data) {
       // 결제창이 닫힐때 수행됩니다. (성공,실패,취소에 상관없이 모두 수행됨)
       console.log(data);
+ 
   }).done(function (data) {
 	  alert("결제 완료.");
 	  location.href="/post/release12";
