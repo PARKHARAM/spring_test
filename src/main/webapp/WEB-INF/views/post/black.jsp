@@ -8,6 +8,56 @@
 </head>
 <body>
 
+<body onload="init();">
+<script language="JavaScript">
+<!--
+var sell_price;
+var amount;
+
+function init () {
+	sell_price = document.form.sell_price.value;
+	amount = document.form.amount.value;
+	document.form.sum.value = sell_price;
+	change();
+}
+
+function add () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+	hm.value ++ ;
+
+	sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value -- ;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+}
+
+function change () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+	sum.value = parseInt(hm.value) * sell_price;
+}  
+//-->
+</script>
+
+<form name="form" method="get">
+수량 : <input type=hidden name="sell_price" value="5500">
+<input type="text" name="amount" value="1" size="3" onchange="change();">
+<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
+
+금액 : <input type="text" name="sum" size="11" readonly>원
+</form>
+
 
 <div class="xans-element- xans-product xans-product-addimage listImg"><div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 1230px;"><ul class="bxslider" style="width: 1215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);"><li class="xans-record- bx-clone" style="float: left; list-style: none; position: relative; width: 560px; " aria-hidden="true"><img src="/images/05.jpg" class="ThumbImage" alt="" ></li>
 

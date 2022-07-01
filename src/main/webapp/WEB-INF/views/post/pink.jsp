@@ -76,23 +76,71 @@ z<%@ page language="java" contentType="text/html; charset=UTF-8"
 <td>[라이크먼트] 캘리포니아 썸머 링거티 pink</td>
                             <td>
                                 <span class="quantity">
-                                    <input id="quantity" name="quantity_name" style="" value="1" type="text">
-                                    <a href="#none"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif"  alt="수량증가"  class="QuantityUp up"></a>
-                                    <a href="#none"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_down.gif" alt="수량감소" class="QuantityDown down"></a>
-                                </span>
-                            </td>
-                            <td class="right">
-<span class="quantity_price">25000</span> <span class="mileage "><img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif">(<span class="mileage_price">199</span>)</span>
+                                
+                                
+                                <body onload="init();">
+<script language="JavaScript">
+<!--
+var sell_price;
+var amount;
+
+function init () {
+	sell_price = document.form.sell_price.value;
+	amount = document.form.amount.value;
+	document.form.sum.value = sell_price;
+	change();
+}
+
+function add () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+	hm.value ++ ;
+
+	sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value -- ;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+}
+
+function change () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+	sum.value = parseInt(hm.value) * sell_price;
+	
+}  
+//-->
+</script>
+
+<form name="form" method="get">
+수량 : <input type=hidden name="sell_price" value="25000">
+<input type="text" name="amount" id="quantity"  value="1" size="3" onchange="change();">
+<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
+</td>  <td class="right">
+금액 : <input type="text" name="sum" size="11" readonly>원
 </td>
-                        </tr></tbody>
+</form>
+
+                                   
+                                </span>
+                   </tr></tbody>
                       
                     
                     
 
                     <tfoot><tr>
 <td colspan="3">
-<strong class="totalprice">TOTAL PRICE</strong> (count) : <span class="total"><strong><em>25,000</em></strong> (1 item)</span>
-</td>
+
+
                         </tr></tfoot>
 </table>
 

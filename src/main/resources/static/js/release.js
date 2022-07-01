@@ -51,13 +51,19 @@ let index={
 				dataType : "json"	
 			}).done(function(resp){
 				console.log(resp);
-				alert("상품 수량 확인");
+				alert("상품 수량 확인"+ data.price_count);
 				
 			}).fail(function(error){
 				console.log(error);
 				alert("회원가입 실패22");
 			});
 		} //이벤트 리스닝 실제 실행 함수
+		
+
+			
+
+		
+	
 }
 
 index.init();
