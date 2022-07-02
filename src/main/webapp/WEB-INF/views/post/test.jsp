@@ -36,7 +36,7 @@
       </tr>
       
 	    <p class="card-text">본문 미리 보기...</p>
-	    <a href="#" class="btn btn-primary">상세보기</a>
+	    <a href="/post/detail/${ReleaseDto.id}" class="btn btn-primary">상세보기</a>
 	  </div>
 	</div>
 	
