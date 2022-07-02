@@ -15,4 +15,5 @@ public interface ReleaseRepository {
 	public ReleaseDto findname(String product );
 	public void findname1(String product );
 	public void save(Release release);
+	public void save_b(Release release);
 }

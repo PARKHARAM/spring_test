@@ -101,7 +101,7 @@ public class ReleaseService {
 		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());
 		 ItemRepository.save(release);	
-		 
+		 ItemRepository.save_b(release);	
 	}
 	
 	

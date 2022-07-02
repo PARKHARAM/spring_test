@@ -4,9 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mary.blog.repository.ReleaseRepository">
 	<insert id="save">
-		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n)
-		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n})
+		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now())
 	</insert>
+	<insert id="save_b">
+		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now())
+	</insert>
+	
 	
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
 		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)

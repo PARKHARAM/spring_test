@@ -31,6 +31,7 @@
         <td>상품명 : <c:out value="${ReleaseDto.product}" /></td><br>
         <td>수량 : <c:out value="${ReleaseDto.price_count}" /></td><br>
         <td>결제 금액 : <c:out value="${ReleaseDto.total_price}" /></td><br>
+        <td>결제 시간 : <c:out value="${ReleaseDto.date}" /></td><br>
 		
       </tr>
       

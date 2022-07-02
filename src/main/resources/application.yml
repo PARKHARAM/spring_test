@@ -8,12 +8,20 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  
+
+# Local 적용 시 
   datasource:
-    url: jdbc:mysql://34.64.176.193:3306/spring?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-    username: spring
-    password: bitc5600
+    url: jdbc:mysql://localhost:3306/spring?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: a8408
     driver-class-name: com.mysql.cj.jdbc.Driver 
+
+  # GCP 서버 SQL 접속 시 
+#  datasource:
+#    url: jdbc:mysql://34.64.176.193:3306/spring?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+#    username: spring
+#    password: bitc5600
+#    driver-class-name: com.mysql.cj.jdbc.Driver 
   jpa:
     hibernate:
       ddl-auto: create

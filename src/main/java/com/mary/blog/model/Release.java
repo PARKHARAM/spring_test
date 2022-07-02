@@ -22,5 +22,5 @@ public class Release {
 	private String tel;
 	private int total_price;
 	private int product_n;
-	
+	private Timestamp date;
 }

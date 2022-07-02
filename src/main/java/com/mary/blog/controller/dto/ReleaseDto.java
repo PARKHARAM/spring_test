@@ -1,6 +1,8 @@
 package com.mary.blog.controller.dto;
 
 
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +23,5 @@ public class ReleaseDto {
 	private int price;
 	private int postcode;
 	private int product_n;
+	private Timestamp date;
 }
