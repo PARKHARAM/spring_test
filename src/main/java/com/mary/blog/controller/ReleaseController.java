@@ -84,15 +84,29 @@ public class ReleaseController {
 		System.out.println(release.getPrice_count());
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
+	
+	
     /*
     public List<Item> gestUserList(Model model) {
     	model.addAttribute("posts", postService.목록보기());
     	return "post/item";
     }
 */
+	//post관련된 것은 전부다 인증 필요하게!!
+	@GetMapping("/post/list")
+	public String getPosts(Model model){ //model 데이터 담고 이동할때 사용 (Requestdispatcher)
+		model.addAttribute("payment_list", testService.findAll());
+		return "/post/payment_list";
+	}
 
-
-
+	@GetMapping("/post/list/{id}")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost(@PathVariable int id, Model model) {
+		model.addAttribute("payment_detail",testService.detail(id));
+		return "post/detail_list";
+	}
+	
     
 }
 

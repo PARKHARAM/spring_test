@@ -1,9 +1,12 @@
 package com.mary.blog.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
-
+import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
+import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 
 @Repository
@@ -16,4 +19,6 @@ public interface ReleaseRepository {
 	public void findname1(String product );
 	public void save(Release release);
 	public void save_b(Release release);
+	public List<Release> findAll();
+	public List<Release> findBylist(int userId);
 }

@@ -12,6 +12,7 @@ import com.mary.blog.repository.ItemRepository;
 import com.mary.blog.repository.ReleaseRepository;
 import com.mary.blog.repository.UserRepository;
 import com.mary.blog.controller.dto.ItemRespDto;
+import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
@@ -61,6 +62,10 @@ public class ReleaseService {
 		 return  ItemRepository.find2(product);
 	}
 	
+	@Transactional(readOnly = true)
+	public List<Release> findAll() {
+		 return ItemRepository.findAll();
+	}
 	
 	
 	@Transactional(readOnly = true)
@@ -104,6 +109,10 @@ public class ReleaseService {
 		 ItemRepository.save_b(release);	
 	}
 	
+	@Transactional(readOnly = true)
+	public List<Release> detail(int userId) {
+		 return ItemRepository.findBylist(userId);
+	}
 	
 
 

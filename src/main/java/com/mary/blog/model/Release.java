@@ -23,4 +23,5 @@ public class Release {
 	private int total_price;
 	private int product_n;
 	private Timestamp date;
+	private int userId;
 }

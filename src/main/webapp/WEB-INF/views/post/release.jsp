@@ -5,7 +5,7 @@
 <link href="/css/test.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
+<input id="userId" type="hidden" value="${sessionScope.principal.id}">
 <input type="text" id="sample6_postcode" placeholder="우편번호">
 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 <input type="text" id="sample6_address" placeholder="주소"><br>
@@ -77,76 +77,13 @@
      </div>
 	  <p> 상품 수량 : </p>
        <p id="uname">${items.product}</p>
-<h4 class="card-title">${ReleaseDto.total_price}원 ${items.id}</h4>
+<h4 class="card-title">${sessionScope.principal.id}원 ${ItemRespDto.id}</h4>
 <c:set var="url" value="/post/buy/${items.id}"/>
 
 <button id="btn-save" type="button" class="btn btn-primary">구매</button>
-
+<!-- 
 <a href=${url} class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
+-->
 
-<div class="container">
-
-	<div class="card m-1"  style="width:30%" >
-	  <div class="card-body" >
-	  	<a href="/post/black"><img src="/images/black.png" alt=""  width="150px;"></a>
-		<h4 class="card-title">${ReleaseDto.uname}</h4>
-	    <p class="card-text">${ReleaseDto.tel}</p>
-	    
-	    <a href="/post/buy/4" class="btn btn-primary">구매하기</a>
-	  </div>
-	</div>
-	
-	<div class="card m-1"style="width:30%">
-	  <div class="card-body">
-	  	<img src="/images/red.png" alt="" / width="150px;">
-	    <h4 class="card-title">red T-shirt -post</h4>
-	    <p class="card-text">25,000원</p>
-
-	    <a href="/post/buy/5" class="btn btn-primary">구매하기</a>
-	  </div>
-	</div>
-	
-	<div class="card m-1"	 style="width:30%">
-	  <div class="card-body">
-	    <img src="/images/blue.png" alt="" / width="150px;">
-	    <h4 class="card-title">blue T-shirt -post</h4>
-	    <p class="card-text">14,000원</p>
-
-	    <a href="/post/buy/6" class="btn btn-primary">구매하기</a>
-	  </div>
-	</div>
-</div>
-
-<div class="container">
-
-	<div class="card m-1"  style="width:30%" >
-	  <div class="card-body" >
-	  	<a href="/post/color/ivory"><img src="/images/ivory.png" alt=""  width="150px;"></a>
-		 <a href="/post/color/ivory"><h4 class="card-title">ivory T-shirt</h4></a>
-	    <p class="card-text">29,000원</p>
-
-	  </div>
-	</div>
-	
-	<div class="card m-1"style="width:30%">
-	  <div class="card-body">
-	  	<a href="/post/color/lemon"><img src="/images/lemon.png" alt=""  width="150px;"></a>
-	    <a href="/post/color/lemon"><h4 class="card-title">lemon T-shirt</h4></a>
-	    <p class="card-text">30,000원</p>
-	   
-
-	  </div>
-	</div>
-	
-	<div class="card m-1"	 style="width:30%">
-	  <div class="card-body">
-	  	<a href="/post/color/pink"><img src="/images/pink.png" alt=""  width="150px;"></a>
-	    <a href="/post/color/pink"><h4 class="card-title">pink T-shirt</h4></a>
-	    <p class="card-text">25,000원</p>
-
-
-	  </div>
-	</div>
-</div>
 <script src="/js/release.js"></script>
 <%@ include file="../layout/footer.jsp" %>

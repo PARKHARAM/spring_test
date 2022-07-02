@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mary.blog.repository.ReleaseRepository">
 	<insert id="save">
-		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date)
-		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now())
+		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(),#{userId} )
 	</insert>
 	<insert id="save_b">
-		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date)
-		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now())
+		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId})
 	</insert>
 	
 	
@@ -30,6 +30,16 @@
 	</select>
 		<select id="finduser" resultType="com.mary.blog.controller.dto.ReleaseDto">
 			SELECT * FROM release_t WHERE uname LIKE #{uname} AND product_n LIKE #{product} ;
+	</select>
+	
+	<select id="findAll" resultType="com.mary.blog.model.Release">
+
+		SELECT * FROM release_t WHERE userId LIKE 12;
+	</select>
+	
+		<select id="findBylist" resultType="com.mary.blog.model.Release">
+		SELECT * FROM release_t WHERE userId LIKE #{userId};
+
 	</select>
 	
 </mapper>

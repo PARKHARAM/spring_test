@@ -24,4 +24,5 @@ public class ReleaseDto {
 	private int postcode;
 	private int product_n;
 	private Timestamp date;
+	private int userId;
 }
