@@ -21,4 +21,5 @@ public interface ReleaseRepository {
 	public void save_b(Release release);
 	public List<Release> findAll();
 	public List<Release> findBylist(int userId);
+	public ReleaseDto find_detail(int id);
 }

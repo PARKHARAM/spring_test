@@ -42,6 +42,10 @@
 
 	</select>
 	
+	<select id="find_detail" resultType="com.mary.blog.controller.dto.ReleaseDto">
+			SELECT * FROM release_t WHERE id LIKE #{id};
+	</select>
+	
 </mapper>
 
 

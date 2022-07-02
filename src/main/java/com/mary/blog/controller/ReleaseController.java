@@ -106,7 +106,13 @@ public class ReleaseController {
 		model.addAttribute("payment_detail",testService.detail(id));
 		return "post/detail_list";
 	}
-	
+	@GetMapping("/post/detail/{id}")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost2(@PathVariable int id, Model model) {
+		model.addAttribute("payment_list",testService.find_detail(id));
+		return "/post/payment_list";
+	}
     
 }
 

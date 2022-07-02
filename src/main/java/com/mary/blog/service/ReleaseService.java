@@ -114,6 +114,11 @@ public class ReleaseService {
 		 return ItemRepository.findBylist(userId);
 	}
 	
+	@Transactional(readOnly = true)
+	public ReleaseDto find_detail(int id) {
+		 System.out.println(id);
+		 return  ItemRepository.find_detail(id);
+	}
 
 
 }

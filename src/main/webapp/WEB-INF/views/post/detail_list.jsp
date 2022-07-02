@@ -17,9 +17,9 @@
     <c:forEach var="payment_list" items="${payment_detail}">
       <tr>
       	<td><fmt:formatDate value="${payment_list.date }" pattern="yyyy-MM-dd"/></td>
-        <td><a href="/post/list/${payment_list.userId}">${payment_list.product}</a></td>
+        <td><a href="/post/detail/${payment_list.id}">${payment_list.product}</a></td>
         <td>${payment_list.price_count}</td>
-        <td>${payment_list.total_price}</td>
+        <td>${payment_list.id} ${payment_list.total_price}</td>
       </tr>
       </c:forEach>
       <tr>
