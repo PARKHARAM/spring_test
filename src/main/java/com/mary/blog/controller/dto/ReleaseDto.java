@@ -25,4 +25,5 @@ public class ReleaseDto {
 	private int product_n;
 	private Timestamp date;
 	private int userId;
+	private String request;
 }
