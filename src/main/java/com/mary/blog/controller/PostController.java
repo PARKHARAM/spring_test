@@ -33,6 +33,7 @@ public class PostController {
 	public String posthome() {
 		return "post/home";
 	}
+	
 	@GetMapping("/post/best")
 	public String postbest() {
 		return "post/best";
@@ -66,6 +67,14 @@ public class PostController {
 		return "post/qq";
 	}
 	
+	@GetMapping("/post/can")
+	public String postthome() {
+		return "post/cancel";
+	}
+	@GetMapping("/post/pop")
+	public String postthome2() {
+		return "post/popup";
+	}
 	@PostMapping("/post")
 	public @ResponseBody CommonRespDto<?> postProc(@RequestBody Post post) {
 		postService.글쓰기(post);

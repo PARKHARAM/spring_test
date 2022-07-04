@@ -1,62 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="../layout/header.jsp" %>
-
-<!doctype html>
-<html lang="ko">
-<head>
-	<meta charset="utf-8">
-	<title> ì£¼ë¬¸ì„œ ì‘ì„±í•˜ê¸°</title>
-	
-	
-	
-	<style>
-		.container {
-			width:600px;
-			margin:0 auto;
-		}
-		ul { /* ìˆœì„œì—†ëŠ” ëª©ë¡ì— ì ìš©í•  ìŠ¤íƒ€ì¼ */
-			list-style-type: none; /* ë¶ˆë¦¿ ì—†ì•° */
-		}
-
-		label.title { /* class=titleì¸ labelì— ì ìš©í•  ìŠ¤íƒ€ì¼ */
-			font-weight: bold; /* êµµì€ ê¸€ì */
-			width: 80px; /* ë„ˆë¹„ 80px */
-			float: left; /* ì™¼ìª½ë¶€í„° ë°°ì¹˜ */
-		}
-
-		div.centered { /* class=centeredì¸ divì— ì ìš©í•  ìŠ¤íƒ€ì¼ */
-			text-align: center; /* ê°€ìš´ë° ì •ë ¬ */
-		}
-
-		fieldset { /* í•„ë“œì…‹ì— ì ìš©í•  ìŠ¤íƒ€ì¼*/
-			margin: 15px 10px; /* ìƒí•˜ ë§ˆì§„ 15xp, ì¢Œìš° ë§ˆì§„ 10px */
-		}
-
-			fieldset legend { /* í•„ë“œì…‹ì˜ ì œëª© */
-				font-weight: bold; /* êµµì€ ê¸€ì */
-				font-size: 18px; /* ê¸€ì í¬ê¸° 18px */
-				color: purple; /* ê¸€ììƒ‰ ìì£¼ */
-			}
-
-		ul li { /* ëª©ë¡ì˜ ê° í•­ëª© */
-			margin-bottom: 10px; /* ì•„ë˜ ë§ˆì§„ 10px */
-		}
-		/*ë³´ì—¬ì§€ëŠ”ì°½*/
-		.SLB_center { cursor:pointer; visibility:hidden; border: solid 4px #000000; background-color:#ffffff; }      
-		/*ë‹«ê¸°ë²„íŠ¼*/
-		.SLB_close { cursor: pointer; display:none; font-family: verdana,tahoma; font-size: 9pt; background-color:#000000; color: #ffffff; padding-bottom: 4px; } 
-		/*ë‚´ìš© ë©”ì„¸ì§€*/
-		.SLB_caption { cursor: pointer; display:none; font-family: verdana,tahoma; font-size: 9pt; background-color:#000000; color: #ffffff; padding-bottom: 4px; }     
-		/*ë¡œë”©ì‹œ*/
-		#SLB_loading { cursor: pointer; display:none; z-index: 99998; position:absolute; font-family: verdana,tahoma; font-size: 8pt; background-color:#000000; color: #ffffff; padding: 10px 10px 10px 10px; border: solid 1px #cfcfcf;
-	</style>
-	
-	
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<html><head>    
+        <title>simple rightbox - http://blog.daum.net/hometip</title>    
+        <meta http-equiv="content-type" content="text/html; charset=euc-kr">    
+        <style type="text/css">
+html { width:100%; height:100%; }      
+body { width:100%; height:100%; margin: 0px; padding: 0px; font-size:9pt; } 
+/*º¸¿©Áö´ÂÃ¢*/
+.SLB_center { cursor:pointer; visibility:hidden; border: solid 4px #000000; background-color:#ffffff; }      
+/*´İ±â¹öÆ°*/
+.SLB_close { cursor: pointer; display:none; font-family: verdana,tahoma; font-size: 9pt; background-color:#000000; color: #ffffff; padding-bottom: 4px; } 
+/*³»¿ë ¸Ş¼¼Áö*/
+.SLB_caption { cursor: pointer; display:none; font-family: verdana,tahoma; font-size: 9pt; background-color:#000000; color: #ffffff; padding-bottom: 4px; }     
+/*·Îµù½Ã*/
+#SLB_loading { cursor: pointer; display:none; z-index: 99998; position:absolute; font-family: verdana,tahoma; font-size: 8pt; background-color:#000000; color: #ffffff; padding: 10px 10px 10px 10px; border: solid 1px #cfcfcf; }      
+		</style> 
 
         <script language="javascript" type="text/javascript">    
-            // ì‹¬í”Œ ë¼ì´íŠ¸ë°•ìŠ¤ íš¨ê³¼ by ì•Œë¦­ (2007/03/01)      
+            // ½ÉÇÃ ¶óÀÌÆ®¹Ú½º È¿°ú by ¾Ë¸¯ (2007/03/01)      
             // http://www.alik.info  
             var SLB_cnt = 0;  
             function SLB_show(url, type)      
@@ -78,7 +39,7 @@
                     } else if (type == 'iframe') {      
                         b.innerHTML="<iframe src=" + url + " width="+ arguments[2] +" height="+ arguments[3] +" class='SLB_center' marginwidth='0' marginheight='0' frameborder='0' vspace='0' hspace='0' onload='SLB_setCenter(this);' /></iframe>";        
                         if(arguments[4]) {      
-                            b.innerHTML += "<div class='SLB_close' onclick='SLB_show();' title='ë‹«ê¸°'>close</div>";      
+                            b.innerHTML += "<div class='SLB_close' onclick='SLB_show();' title='´İ±â'>close</div>";      
                         }      
                         b.onclick = ''; b.firstChild.style.cursor = 'default';      
                     } else if (type='html'){      
@@ -185,97 +146,37 @@
                 document.getElementById('SLB_film').style.width = document.body.offsetWidth + 'px';      
                 SLB_setCenter(document.getElementById('SLB_content').firstChild);            
             }      
-        </script>  	
-</head>
-
-<body>
-	<div class="container">
-		<form>
-			<h1>ìƒí’ˆ ì£¼ë¬¸ì„œ</h1>
-			<fieldset>
-				<legend>ê°œì¸ ì •ë³´</legend>
-				<ul>
-					<li>
-						<label for="uname" class="title">ì´ë¦„</label>
-						<input type="text" name="uname" value="${payment_list.uname}" readonly>
-					</li>
-					<li>
-						<label for="tel1" class="title">ì—°ë½ì²˜</label>
-						<input type="text" name="tel" value="${payment_list.tel}" readonly>
-					</li>
-				</ul>
-			</fieldset>
-			<fieldset>
-				<legend>ë°°ì†¡ì§€ ì •ë³´</legend>
-				<ul>
-					<li>
-						<label for="addr" class="title">ì£¼ì†Œ</label>
-						<input type="text" name="address" value="${payment_list.address}" readonly style="width:400px;height:30px;">
-					</li>
-					<li>
-						<label for="tel2" class="title">ì „í™”ë²ˆí˜¸</label>
-						<input type="text" name="tel2" value="${payment_list.tel}" readonly>
-					</li>
-					<li>
-						<label for="comment" class="title">ìš”ì²­ ì‚¬í•­</label>
-						<input type="text" name="tel2" value="${payment_list.request}" readonly>
-					</li>
-				</ul>
-			</fieldset>
-			<fieldset>
-				<legend>ì£¼ë¬¸ ì •ë³´</legend>
-					<div class="container">
-      
-  <table class="table table-striped">
-    <thead>
-      <tr>
-      	<th>êµ¬ë§¤ ë‚ ì§œ</th>
-      	<th>ìƒí’ˆ ëª…</th>
-        <th>êµ¬ë§¤ ìˆ˜ëŸ‰</th>
-        <th>ì´ ê°€ê²©</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr>
-      	<td><fmt:formatDate value="${payment_list.date }" pattern="yyyy-MM-dd"/></td>
-      	<td>${payment_list.product}</td>
-        <td>${payment_list.price_count}</td>
-        <td>${payment_list.total_price}</td>
-      </tr>
-
-      <tr>
-    </tbody>
-  	</table>
-	</div>
-			</fieldset>
-			<div class="centered">
-				<input type="submit" value="ì£¼ë¬¸ ì·¨ì†Œ">
-				<input type="button" value="ë’¤ë¡œ ê°€ê¸°" onClick="history.go(-1)">
-				
-				
-				    <div id="SLB_film" style="z-index: 99997; position: absolute; display: none; width: 1559px; height: 1297px; background-color: rgb(0, 0, 0); opacity: 0.6;">
-	<!-- background-color:#000000; filter:Alpha(opacity=20); opacity:0.6; -moz-opacity:0.6;ëŠ” íˆ¬ëª…ë„ ì¡°ì ˆìš© --></div>  
+        </script>    
+    </head>    
+    
+    <body>    
+  
+    <div id="SLB_film" style="z-index: 99997; position: absolute; display: none; width: 1559px; height: 1297px; background-color: rgb(0, 0, 0); opacity: 0.6;">
+	<!-- background-color:#000000; filter:Alpha(opacity=20); opacity:0.6; -moz-opacity:0.6;´Â Åõ¸íµµ Á¶Àı¿ë --></div>  
 	
     <div id="SLB_content" onclick="SLB_show();" align="center" style="z-index: 99999; position:absolute;"></div>    
-    <div id="SLB_loading" onclick="SLB_show();" title="ë¡œë”©ì¤‘"> <center><b>Now loading..</b><br>(í´ë¦­í•˜ë©´ ë¡œë”©ì·¨ì†Œ) </center></div>    
+    <div id="SLB_loading" onclick="SLB_show();" title="·ÎµùÁß"> <center><b>Now loading..</b><br>(Å¬¸¯ÇÏ¸é ·ÎµùÃë¼Ò) </center></div>    
     
-
-
-
-		<a onclick="SLB_show('https://tracker.delivery/#/kr.cjlogistics/363680697425','iframe', 800, 800, true);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>ë°°ì†¡ ì¡°íšŒ</b></a><br>   
-
-  
-			</div>
-		</form>
-	</div>
+    <div style="margin:50px 150px 150px 150px;">  
 	
-	
+<br><br>
 
-</body>
-</html>
-
-
-
-
-<%@include file="../layout/footer.jsp" %>
+        <a onclick="SLB_show('http://cfs7.blog.daum.net/original/15/blog/2008/01/12/17/21/4788787176c9f&amp;filename=bloglogo.png','image',false, '<b>È¨ÆÁ°ú ÇÔ²²ÇØ¿ä^_^!</b>');" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>ÀÌ¹ÌÁö ¶ç¿öº¸±â</b></a><br>   
+        ¡¤  SLB_show('ÀÌ¹ÌÁöÁÖ¼Ò','image',¹İÅõ¸í¹è°æÅ¬¸¯½Ã´İ±â¼³Á¤(true false), '¸Ş¼¼Áö³»¿ë'); <!-- ,'¸Ş¼¼Áö³»¿ë' Á¦°Å½Ã ÀÌ¹ÌÁö¸¸ º¸ÀÓ --><br>   <br>
+        
+		<a onclick="SLB_show('https://tracker.delivery/#/kr.cjlogistics/363680697425','iframe', 800, 800, true);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>¾ÆÀÌÇÁ·¹ÀÓÃ¢ ¶ç¿ì±â</b></a><br>   
+        ¡¤  SLB_show('»çÀÌÆ®ÁÖ¼Ò', 'iframe', °¡·ÎÅ©±â, ¼¼·ÎÅ©±â, close¹öÆ°Ç¥½Ã¼³Á¤(true false));<br>  
+        <br>
+		<a onclick="SLB_show('<table border=\'1\' width=\'299\' height=\'300\' bordercolorlight=\'#EAE8E8\' bordercolordark=\'white\' cellspacing=\'0\' cellpadding=\'5\' bordercolor=\'white\' bgcolor=\'white\'>     <tr>         <td align=\'center\' valign=\'middle\' bgcolor=\'whitesmoke\' width=\'50%\' height=\'124\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>ÀÌ Å×ÀÌºíÀº</span></font></td>         <td align=\'center\' valign=\'middle\' width=\'50%\' height=\'124\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>»ùÇÃÀÔ´Ï´Ù_È¨ÆÁ!</span></font></td></tr></table>','html',false);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>°£´ÜÇÑ HTML ¶ç¿ì±â</b></a><br>   
+        ¡¤  SLB_show('html¼Ò½º', 'html', ³»¿ëÀ»Å¬¸¯ÇÏ¸é´İ±â¼³Á¤(true false));   <!-- false ³»¿ëÅ¬¸¯ÇÏ¸é ´İÈû -->   
+        <br><br>
+		
+		<a onclick="SLB_show('<div id=\'asd\'><div><B><FONT COLOR=ffffff>HOME TIP</FONT></B></div><table border=\'1\' width=\'299\' height=\'300\' bordercolorlight=\'#EAE8E8\' bordercolordark=\'white\' cellspacing=\'0\' cellpadding=\'5\' bordercolor=\'white\' bgcolor=\'white\'>     <tr>         <td align=\'center\' valign=\'middle\' bgcolor=\'whitesmoke\' width=\'50%\' height=\'124\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>SLB_show();¶ó´Â</span></font></td>         <td align=\'center\' valign=\'middle\' width=\'50%\' height=\'124\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>ÇÔ¼ö¸¦È£ÃâÇÑ</span></font></td>     </tr>     <tr>         <td align=\'center\' valign=\'middle\' width=\'50%\' height=\'129\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>¼¿À» Å¬¸¯ÇØ¾ß</span></font></td>         <td align=\'center\' valign=\'middle\' bgcolor=\'#FFDEDE\' width=\'50%\' height=\'129\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>´İÈü´Ï´Ù</span></font></td>     </tr>     <tr>         <td align=\'center\' valign=\'middle\' width=\'50%\' onclick=\'SLB_show();\'><font face=\'Verdana\'><span style=\'font-size:9pt;\'>CLOSE</span></font></td>         <td align=\'center\' valign=\'middle\' width=\'50%\'><span style=\'font-size:9pt;\'><a href=\'http://blog.daum.net/hometip\'><b><font face=\'Verdana\' color=\'black\'>È¨ÆÁ</font></b></a></span></td>     </tr> </table></div>','html', true);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>°£´ÜÇÑ HTML ¶ç¿ì±â+´İ±â¹öÆ°</b></a>    
+        <br>   
+        ¡¤  onclick="SLB_show();" ´İÈû<br>   
+        ¡¤  iframe ¹®¼­¿¡¼­ ´İ±â´Â parent.SLB_show();<br>   
+       
+    </div>    
+        
+ 
+</body></html>
