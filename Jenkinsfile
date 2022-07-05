@@ -34,7 +34,7 @@ pipeline{
                    	sh 'pwd'
                    	sh 'ls -al'
                 	}
-                    sh "mvn sonar:sonar   -Dsonar.projectKey=blog3  -Dsonar.host.url=http://34.64.176.193:9000 "
+                    sh "mvn sonar:sonar   -Dsonar.projectKey=blog  -Dsonar.host.url=http://34.64.176.193:9000 "
                 }
             }
         }
