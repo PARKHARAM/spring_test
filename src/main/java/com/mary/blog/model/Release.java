@@ -25,4 +25,5 @@ public class Release {
 	private Timestamp date;
 	private int userId;
 	private String request;
+	private String tracking_number;
 }

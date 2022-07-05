@@ -263,7 +263,7 @@
 
 
 
-		<a onclick="SLB_show('https://tracker.delivery/#/kr.cjlogistics/363680697425','iframe', 800, 800, true);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>배송 조회</b></a><br>   
+		<a onclick="SLB_show('https://tracker.delivery/#/kr.cjlogistics/${payment_list.tracking_number}','iframe', 800, 800, true);" style="cursor:pointer; border-bottom:1px dashed red; line-height:2;"><b>배송 조회</b></a><br>   
 
   
 			</div>
