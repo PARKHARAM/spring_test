@@ -38,6 +38,10 @@ public class PostController {
 	public String postbest() {
 		return "post/best";
 	}
+	@GetMapping("/post/shop")
+	public String postbest2() {
+		return "post/shop";
+	}
 	/*
 	@GetMapping("/post/buy")
 	public String postbuy() {

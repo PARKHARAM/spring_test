@@ -45,7 +45,7 @@
      				    <li class="nav-item"><a class="nav-link" href="/post/best">TOP</a></li>
       					<li class="nav-item"><a class="nav-link" href="/post/best">BOTTOM</a> </li> 
       					<li class="nav-item"><a class="nav-link" href="/post/list/${sessionScope.principal.id}">결제 정보</a> </li>
-
+						<li class="nav-item"><a class="nav-link" href="/post/basket/${sessionScope.principal.id}">장바구니</a> </li>
 					</c:otherwise>
 				</c:choose>
 						

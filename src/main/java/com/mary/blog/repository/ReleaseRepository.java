@@ -26,4 +26,7 @@ public interface ReleaseRepository {
 	public ReleaseDto find_detail(int id);
 	public void save_basket(Basket basket);
 	public BasketDto find3(String product );
+	public List<Basket> findBybasket(int userId);
+	public void update(Basket basket);
+	public Basket findByupdate(String product, int userId);
 }

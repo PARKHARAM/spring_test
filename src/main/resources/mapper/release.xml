@@ -58,6 +58,19 @@
 			SELECT product, price, id FROM item WHERE product LIKE #{product};
 	</select>
 	
+	<select id="findBybasket" resultType="com.mary.blog.model.Basket">
+		SELECT * FROM basket WHERE userId LIKE #{userId};
+
+	</select>
+	<update id="update">
+		update basket set price_count=#{price_count}, total_price=#{total_price} 
+		where id=#{id}
+	</update>
+	<select id="findByupdate" resultType="com.mary.blog.model.Basket">
+		SELECT * FROM basket WHERE userId LIKE #{userId} AND product LIKE #{product};
+	</select>
+	
+	
 </mapper>
 
 

@@ -83,21 +83,41 @@ public class ReleaseController {
 		product = ItemController.product;
 		//testService.test(release, product, x);
 		bk = basket;
+		testService.save_basket(bk, product, x, num);
 		System.out.println("bk" + bk + x + product);
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
 	
 	
+	@PostMapping("/post/basketupdate")
+	public @ResponseBody CommonRespDto<?> joinProc3(@RequestBody Basket basket) { //key-value 데이터가 아님
+		x = UserController.x;
+		product = ItemController.product;
+		//testService.test(release, product, x);
+		bk = basket;
+		
+		testService.basket_update(basket);
+		System.out.println("bk" + bk + x + product);
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
+
 	
+	/*
 	@GetMapping("post/basket")
 	public String postrelease32(Basket basket, Model model) {
 		x = UserController.x;
 		product = ItemController.product;
 		testService.save_basket(bk, product, x, num);
 		//model.addAttribute("ReleaseDto", testService.findname2(x, product));
-		return "post/test";
+		return "post/basket";
+	}*/
+	@GetMapping("/post/basket/{id}")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost_basket(@PathVariable int id, Model model) {
+		model.addAttribute("basket_list",testService.detail_basket(id));
+		return "post/basket";
 	}
-	
 
 
 	@PostMapping("/post/num")

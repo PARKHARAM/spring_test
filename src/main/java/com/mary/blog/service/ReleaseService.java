@@ -139,7 +139,19 @@ public class ReleaseService {
 		ItemRepository.save_basket(basket);	
 	}
 	
+	@Transactional(readOnly = true)
+	public List<Basket> detail_basket(int userId) {
+		 return ItemRepository.findBybasket(userId);
+	}
 
-	
+	@Transactional
+	public void basket_update(Basket basket) {
+		Basket test = ItemRepository.findByupdate(basket.getProduct(), basket.getUserId());
+		System.out.println("testsss" + test);
+		System.out.println("update  "+basket);
+		test.setPrice_count(basket.getPrice_count());
+		test.setTotal_price(test.getPrice()*basket.getPrice_count());
+		ItemRepository.update(test);
+	}
 
 }
