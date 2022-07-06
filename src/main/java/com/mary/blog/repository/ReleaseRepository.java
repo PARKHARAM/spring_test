@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.mary.blog.controller.dto.BasketDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
+import com.mary.blog.model.Basket;
 import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 
@@ -22,4 +24,6 @@ public interface ReleaseRepository {
 	public List<Release> findAll();
 	public List<Release> findBylist(int userId);
 	public ReleaseDto find_detail(int id);
+	public void save_basket(Basket basket);
+	public BasketDto find3(String product );
 }

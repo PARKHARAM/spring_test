@@ -11,9 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mary.blog.repository.ItemRepository;
 import com.mary.blog.repository.ReleaseRepository;
 import com.mary.blog.repository.UserRepository;
+import com.mary.blog.controller.dto.BasketDto;
 import com.mary.blog.controller.dto.ItemRespDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
+import com.mary.blog.model.Basket;
 import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
@@ -119,6 +121,25 @@ public class ReleaseService {
 		 System.out.println(id);
 		 return  ItemRepository.find_detail(id);
 	}
+	
+	@Transactional
+	public void save_basket(Basket basket, String product, String user, int num) {
+		System.out.println(basket.getProduct());
+		product = basket.getProduct();
+		BasketDto test = ItemRepository.find3(product);	
+		System.out.println(test);
+		System.out.println(user);
+		basket.setUname(user);
+		basket.setProduct_n(test.getId());
+		//basket.setTotal_price(test.getPrice());
+		basket.setProduct(test.getProduct());
+		//basket.setPrice_count(num);
+		basket.setPrice(test.getPrice());
+		System.out.println(basket);
+		ItemRepository.save_basket(basket);	
+	}
+	
 
+	
 
 }

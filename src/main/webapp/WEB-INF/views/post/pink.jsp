@@ -120,13 +120,14 @@ function change () {
 }  
 //-->
 </script>
-
+<input id="userId" type="hidden" value="${sessionScope.principal.id}">
+<input id="product" type="hidden" value="pink-T">
 <form name="form" method="get">
 수량 : <input type=hidden name="sell_price" value="25000">
 <input type="text" name="amount" id="quantity"  value="1" size="3" onchange="change();">
 <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
 </td>  <td class="right">
-금액 : <input type="text" name="sum" size="11" readonly>원
+금액 : <input type="text" id="total" name="sum" size="11" readonly>원
 </td>
 </form>
 
@@ -154,7 +155,7 @@ function change () {
             <!-- 참고 : 뉴상품관리 전용 변수가 포함되어 있습니다. 뉴상품관리 이외의 곳에서 사용하면 일부 변수가 정상동작하지 않을 수 있습니다. -->
             <div class="xans-element- xans-product xans-product-action "><div class="btnArea">
                     <a href="/post/color/9" id="num"class="first " onclick="product_submit(1, '/exec/front/order/basket/', this)"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/product/btn_reserve.gif" alt="예약주문" class="displaynone" id="btnReserve"></a>
-                    
+            <button id="btn-save-basket" type="button" class="btn btn-primary">구매</button>        
                    
                     
                 </div>

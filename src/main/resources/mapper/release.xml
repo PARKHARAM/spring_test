@@ -11,7 +11,10 @@
 		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
 		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId})
 	</insert>
-	
+	<insert id="save_basket">
+		INSERT INTO basket (uname,  product,price_count ,price, total_price, product_n,userId)
+		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId})
+	</insert>	
 	
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
 		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)
@@ -37,6 +40,11 @@
 		SELECT * FROM release_t WHERE userId LIKE 12;
 	</select>
 	
+		<select id="findAllbasket" resultType="com.mary.blog.model.Basket">
+
+		SELECT * FROM basket WHERE userId LIKE 12;
+	</select>
+	
 		<select id="findBylist" resultType="com.mary.blog.model.Release">
 		SELECT * FROM release_t WHERE userId LIKE #{userId};
 
@@ -44,6 +52,10 @@
 	
 	<select id="find_detail" resultType="com.mary.blog.controller.dto.ReleaseDto">
 			SELECT * FROM release_t WHERE id LIKE #{id};
+	</select>
+	
+	<select id="find3" resultType="com.mary.blog.controller.dto.BasketDto">
+			SELECT product, price, id FROM item WHERE product LIKE #{product};
 	</select>
 	
 </mapper>

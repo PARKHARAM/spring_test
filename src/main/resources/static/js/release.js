@@ -5,6 +5,10 @@ let index={
 				//콜백
 				this.save();
 			});
+			$("#btn-save-basket").on("click",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
+				//콜백
+				this.savebasket();
+			});
 			
 			$("#num").on("click",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
 				//콜백
@@ -37,6 +41,33 @@ let index={
 			});
 		}, //이벤트 리스닝 실제 실행 함수
 		
+
+		savebasket : function(){
+			let data={
+					userId:$("#userId").val(),
+					product:$("#product").val(),
+					price_count:$("#quantity").val(),
+					total_price:$("#total").val()	
+			};
+			
+			$.ajax({
+				type: "POST",
+				url: "/post/basket1",
+				data: JSON.stringify(data),
+				contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
+				dataType : "json"	
+			}).done(function(resp){
+				console.log(resp);
+				alert("장바구니로 이동합니다.");
+				location.href="/post/basket";
+			}).fail(function(error){
+				console.log(error);
+				alert("회원가입 실패2");
+			});
+		}, //이벤트 리스닝 실제 실행 함수			
+
+
+
 		num : function(){
 			let data={
 					price_count:$("#quantity").val()
@@ -61,7 +92,6 @@ let index={
 		} //이벤트 리스닝 실제 실행 함수
 		
 
-			
 
 		
 	

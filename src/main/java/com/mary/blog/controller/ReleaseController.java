@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.controller.dto.CommonRespDto;
+import com.mary.blog.model.Basket;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
 import com.mary.blog.service.ItemService;
@@ -31,6 +32,7 @@ public class ReleaseController {
     private String x;
     private String product;
     private Release rel;
+    private Basket bk;
     public static int num;
     
 	@GetMapping("/post/release")
@@ -74,6 +76,29 @@ public class ReleaseController {
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
 	
+	
+	@PostMapping("/post/basket1")
+	public @ResponseBody CommonRespDto<?> joinProc2(@RequestBody Basket basket) { //key-value 데이터가 아님
+		x = UserController.x;
+		product = ItemController.product;
+		//testService.test(release, product, x);
+		bk = basket;
+		System.out.println("bk" + bk + x + product);
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
+	
+	
+	
+	@GetMapping("post/basket")
+	public String postrelease32(Basket basket, Model model) {
+		x = UserController.x;
+		product = ItemController.product;
+		testService.save_basket(bk, product, x, num);
+		//model.addAttribute("ReleaseDto", testService.findname2(x, product));
+		return "post/test";
+	}
+	
+
 
 	@PostMapping("/post/num")
 	public @ResponseBody CommonRespDto<?> num(@RequestBody Release release) { //key-value 데이터가 아님
@@ -113,6 +138,14 @@ public class ReleaseController {
 		model.addAttribute("payment_list",testService.find_detail(id));
 		return "/post/payment_list";
 	}
+	/*
+	@GetMapping("/post/basket")
+	public String getPostb(Model model){ //model 데이터 담고 이동할때 사용 (Requestdispatcher)
+		model.addAttribute("payment_list", testService.findAll());
+		return "/post/payment_list";
+	}*/
+	
+	
     
 }
 
