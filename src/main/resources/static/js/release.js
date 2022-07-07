@@ -18,19 +18,25 @@ let index={
 				this.num();
 			});
 			
-			
-			$("body").on("change", "[id^=ppo14]",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
+			/*
+			$("body").on("change", "[id^=ppo]",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
 				//콜백
-			
+				
 				this.handleOnChange();
 			});
-			
+			*/
 			/*
 			$(document).on("change",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
 				//콜백
 				this.handleOnChange();
 			});
 						*/
+
+/*
+			$(document).on("change", "[id^=ppo]" ,()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
+				//콜백
+				this.test();
+			});*/
 			
 			
 		}, //이벤트 리스닝 바인딩 함수
@@ -111,12 +117,12 @@ let index={
 		}, //이벤트 리스닝 실제 실행 함수
 		
 		
-		handleOnChange : function(){
+		handleOnChange : function(ids){
 			
 			let data={
 				userId:$("#userId").val(),
 				product:$("#product").val(),
-				price_count:$("#ppo14").val(),
+				price_count:$("#ids").val(),
 				total_price:$("#total").val()	
 			};
 		
@@ -128,17 +134,41 @@ let index={
 				dataType : "json"	
 			}).done(function(resp){
 				console.log(resp);
-				alert("수량이 변경되었습니다"+ data.price_count);
+				alert("수량이 변경되었습니다"+ ids);
 				location.href="/post/basket/"+data.userId;
 			}).fail(function(error){
 				console.log(error);
 				alert("회원가입 실패2");
 			});
 
-			} //이벤트 리스닝 실제 실행 함수			
+			}, //이벤트 리스닝 실제 실행 함수			
 
 
+		test : function(){
+			
+			let data={
+				userId:$("#userId").val(),
+				product:$("#product").val(),
+				price_count:$("#ids").val(),
+				total_price:$("#total").val()	
+			};
+		
+			$.ajax({
+				type: "POST",
+				url: "/post/basketupdate",
+				data: JSON.stringify(data),
+				contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
+				dataType : "json"	
+			}).done(function(resp){
+				console.log(resp);
+				alert("수량이 변경되었습니다"+ resp);
+				location.href="/post/basket/"+data.userId;
+			}).fail(function(error){
+				console.log(error);
+				alert("회원가입 실패2");
+			});
 
+			} //이벤트 리스닝 실제 실행 함수	
 
 	
 }

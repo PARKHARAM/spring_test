@@ -116,6 +116,8 @@ public class ReleaseController {
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost_basket(@PathVariable int id, Model model) {
 		model.addAttribute("basket_list",testService.detail_basket(id));
+		model.addAttribute("total", testService.getTotal(id) );
+		System.out.println(model);
 		return "post/basket";
 	}
 

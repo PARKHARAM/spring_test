@@ -67,7 +67,7 @@
 		where id=#{id}
 	</update>
 	<select id="findByupdate" resultType="com.mary.blog.model.Basket">
-		SELECT * FROM basket WHERE userId LIKE #{userId} AND product LIKE #{product};
+		SELECT * FROM basket WHERE id LIKE #{id} ;
 	</select>
 	
 	

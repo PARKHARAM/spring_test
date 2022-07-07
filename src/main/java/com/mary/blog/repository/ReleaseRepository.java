@@ -28,5 +28,6 @@ public interface ReleaseRepository {
 	public BasketDto find3(String product );
 	public List<Basket> findBybasket(int userId);
 	public void update(Basket basket);
-	public Basket findByupdate(String product, int userId);
+	public Basket findByupdate(int id);
+	public int getTotal(int id);
 }
