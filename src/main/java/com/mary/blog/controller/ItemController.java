@@ -24,7 +24,7 @@ public class ItemController {
     private final ItemService testService;
     private final ReleaseService t;
     public static String product;
-    private static int ids;
+    public static int ids;
    
     @GetMapping(value = "api/test")
     public String test() {
@@ -44,7 +44,7 @@ public class ItemController {
 	public String getPost3( Model model) {
 		model.addAttribute("ItemRespDto", testService.test(ids));
 		model.addAttribute("test", ReleaseController.num);
-		System.out.println("TTSS"+ReleaseController.num);
+		System.out.println("TTSS"+ReleaseController.num + model);
 		return "post/buy";
 	}
     /*

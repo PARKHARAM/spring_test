@@ -142,20 +142,15 @@ function change () {
 </div>
 
 
-<input type="text" id="total" size="11" value="${total}" readonly>원
-<button id="btn-save" type="button" class="btn btn-primary">구매</button>
+<center><input type="text" id="totals" size="11" value="${total}" readonly>원
+
+ <a href="/post/test222/5"><button type="button" class="btn btn-primary">구매</button></a>
+</center>
 
 
 
 
-
-<select name="language" id="testa" onchange="handleOnChange()">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select>
-<div id='result'></div>
+ 
 
 
 <script src="/js/release.js"></script>

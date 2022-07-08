@@ -7,6 +7,10 @@
 		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
 		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(),#{userId} )
 	</insert>
+	<insert id="save_test">
+		INSERT INTO release_t (postcode, address, product,tel, total_price , date, userId, request)
+		VALUES(#{postcode},#{address}, #{product}, #{tel}, #{total_price},  now(), #{userId}, #{request} )
+	</insert>
 	<insert id="save_b">
 		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
 		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId})
@@ -79,6 +83,10 @@
 		update basket set price_count=#{count_sum}, total_price=#{price_sum} 
 		WHERE product LIKE #{product} AND userId LIKE #{userId};
 	</update>
+
+	<select id="find22"  resultType="com.mary.blog.model.Basket">
+			SELECT * FROM basket WHERE  userId LIKE 5  limit 1;
+	</select>
 </mapper>
 
 

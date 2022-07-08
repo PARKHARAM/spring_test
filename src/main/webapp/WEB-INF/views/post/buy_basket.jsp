@@ -8,8 +8,8 @@
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
 
 <script>
- 	var price = ${test}*${ItemRespDto.price};
-
+ 	//var price = ${test}*${BasketDto.price};
+	var price = ${Basket.total_price};
   BootPay.request({
 	  
 	  
@@ -18,13 +18,13 @@
       
       application_id: "59a4d323396fa607cbe75de4",
  
-      name:  "${ItemRespDto.product}", //결제창에서 보여질 이름
+      name:  "${Basket.product}", //결제창에서 보여질 이름
       pg: 'nicepay',
       method: '', //결제수단, 입력하지 않으면 결제수단 선택부터 화면이 시작합니다.
       show_agree_window: 0,
       items: [
           {
-              item_name: "${ItemRespDto.product}", 
+              item_name: "${Basket.product}", 
               qty: 1, 
               unique: '1', 
               price: price, 
@@ -43,7 +43,7 @@
  
   }).done(function (data) {
 	  alert("결제 완료.");
-	  location.href="/post/release12";
+	  location.href="/post/basket/su";
       //결제가 정상적으로 완료되면 수행됩니다
       //비즈니스 로직을 수행하기 전에 결제 유효성 검증을 하시길 추천합니다.
       console.log(data);

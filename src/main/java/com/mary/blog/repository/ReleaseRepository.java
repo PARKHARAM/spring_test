@@ -33,4 +33,6 @@ public interface ReleaseRepository {
 	public boolean search_basket(String product, int userId);
 	public Basket find_have(String product, int userId);
 	public void update_basket(int count_sum, int price_sum, String product, int userId);
+	public Basket find22(int userId);
+	public void save_test(Release release);
 }

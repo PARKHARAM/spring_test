@@ -28,7 +28,7 @@ public class ReleaseService {
 
 	private ReleaseRepository ItemRepository; // DI
 	private UserRepository UserRepo;
-
+	private ItemRepository ItemRepository2; // DI
 	
 	@Transactional(readOnly = false)
 	public ReleaseDto test(int id) {
@@ -157,6 +157,13 @@ public class ReleaseService {
 		 
 		 return ItemRepository.findBybasket(userId);
 	}
+	@Transactional(readOnly = true)
+	public Basket find22(int userId) {
+		 
+		 return ItemRepository.find22(userId);
+	}
+	
+	
 
 	@Transactional
 	public void basket_update(Basket basket) {
@@ -205,5 +212,53 @@ public class ReleaseService {
 		System.out.println(basket);
 		ItemRepository.update_basket(count_sum , price_sum, product, userId);
 	}
+	
+	public void buy_basket(Basket basket, String product, int userId) {
+		// TODO Auto-generated method stub
+		System.out.println(basket.getProduct());
+		product = basket.getProduct();
+		Basket test = ItemRepository.find_have(product, userId);	
+		System.out.println(test);
+		int count_sum = (int)test.getPrice_count()+(int)basket.getPrice_count();
+		int price_sum = (int)test.getTotal_price()+(int)basket.getTotal_price();
+		System.out.println("증가수량"+count_sum + "가격" + price_sum);
+
+		basket.setPrice(test.getPrice());
+		System.out.println(basket);
+		ItemRepository.update_basket(count_sum , price_sum, product, userId);
+	}
+
+	@Transactional(readOnly = true)
+	public Basket test2(String product,int id) {
+		Basket test = ItemRepository.find_have(product,id);
+		 //System.out.println(test.getPrice());
+		 //System.out.println(test.getId());
+		 return  ItemRepository.find_have(product,id);
+	}
+	
+	
+	@Transactional
+	public void save_test(Release release, String product, String user, int num) {
+		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
+		/*
+		 ReleaseDto test = ItemRepository.find2(product);		
+		 
+		 //ReleaseDto test2 = ItemRepository.findname("gkfka133");
+		 
+
+		 System.out.println("product_n =" + release.getTotal_price());
+		 //release.setUname(test2.getUname());
+		 release.setUname(user);
+		 release.setProduct_n(test.getId());
+		 release.setTotal_price(test.getPrice()*num);
+		 release.setProduct(test.getProduct());
+		 release.setPrice_count(num);
+		 System.out.println("product_name=" + release.getUname());
+		 System.out.println("product_n =" + release.getProduct_n());
+		 System.out.println("TNEW" + release.getProduct());*/
+		 ItemRepository.save_test(release);	
+	
+	}
+	
 
 }
