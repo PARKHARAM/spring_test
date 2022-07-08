@@ -169,4 +169,41 @@ public class ReleaseService {
 		System.out.println("test after  " + test);
 	}
 
+	public boolean search_basket(String product, int UserId) {
+		// TODO Auto-generated method stub
+		System.out.println("tseat  " + product + " " +UserId);
+		
+		//Basket search = ItemRepository.search_basket(product,UserId);
+		boolean search =ItemRepository.search_basket(product,UserId);
+		System.out.println("tseat  " + search);
+		/*boolean check;
+		if(search.getProduct() == product)
+		{
+			check = true;
+		}
+		else
+		{
+			check = false;
+		}
+		return check;
+		*/
+		return search;
+		
+	}
+
+	public void save_basket_hv(Basket basket, String product, int userId) {
+		// TODO Auto-generated method stub
+		System.out.println(basket.getProduct());
+		product = basket.getProduct();
+		Basket test = ItemRepository.find_have(product, userId);	
+		System.out.println(test);
+		int count_sum = (int)test.getPrice_count()+(int)basket.getPrice_count();
+		int price_sum = (int)test.getTotal_price()+(int)basket.getTotal_price();
+		System.out.println("증가수량"+count_sum + "가격" + price_sum);
+
+		basket.setPrice(test.getPrice());
+		System.out.println(basket);
+		ItemRepository.update_basket(count_sum , price_sum, product, userId);
+	}
+
 }

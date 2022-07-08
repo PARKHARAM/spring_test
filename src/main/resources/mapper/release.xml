@@ -57,7 +57,9 @@
 	<select id="find3" resultType="com.mary.blog.controller.dto.BasketDto">
 			SELECT product, price, id FROM item WHERE product LIKE #{product};
 	</select>
-	
+	<select id="find_have" resultType="com.mary.blog.model.Basket">
+			SELECT * FROM basket WHERE product LIKE #{product} AND userId LIKE #{userId} 
+	</select>
 	<select id="findBybasket" resultType="com.mary.blog.model.Basket">
 		SELECT * FROM basket WHERE userId LIKE #{userId};
 
@@ -69,8 +71,14 @@
 	<select id="findByupdate" resultType="com.mary.blog.model.Basket">
 		SELECT * FROM basket WHERE id LIKE #{id} ;
 	</select>
+	<select id="search_basket" resultType="boolean">
+		SELECT EXISTS(SELECT * FROM basket WHERE product LIKE #{product} AND userId LIKE #{userId} ) AS t;
+	</select>
 	
-	
+	<update id="update_basket">
+		update basket set price_count=#{count_sum}, total_price=#{price_sum} 
+		WHERE product LIKE #{product} AND userId LIKE #{userId};
+	</update>
 </mapper>
 
 

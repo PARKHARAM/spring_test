@@ -83,7 +83,19 @@ public class ReleaseController {
 		product = ItemController.product;
 		//testService.test(release, product, x);
 		bk = basket;
-		testService.save_basket(bk, product, x, num);
+		System.out.println("bk" + bk + x + product+ num);
+		Basket oldbk;
+		boolean a;
+		a = testService.search_basket(bk.getProduct(), bk.getUserId());
+		System.out.println("aaaaaa" + a);
+		if(a == true)
+		{
+			testService.save_basket_hv(bk, bk.getProduct(), bk.getUserId());
+		}
+		else if(a == false) {
+			testService.save_basket(bk, product, x, num);
+		}
+		
 		System.out.println("bk" + bk + x + product);
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
