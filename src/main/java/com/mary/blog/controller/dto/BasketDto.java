@@ -21,4 +21,5 @@ public class BasketDto {
 	private int product_n;
 	private int userId;
 	private int price;
+	private int baseId;
 }

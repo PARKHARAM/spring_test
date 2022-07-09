@@ -164,6 +164,25 @@ public class ReleaseService {
 
 		 return ItemRepository.findBybasket(userId);
 	}
+	
+	public int getTotal2(int id, int baseId) {
+		List<Basket> a = ItemRepository.findBybasket3(id,  baseId);
+		 int sum = 0; 
+		 for(int i=0; i<a.size(); i++)
+		 {
+			 System.out.println(a.get(i).getTotal_price());
+			 sum = sum + a.get(i).getTotal_price();
+			 System.out.println(sum);
+		 }
+		 return sum;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Basket> detail_basket2(int userId, int baseId) {
+
+		 return ItemRepository.findBybasket3(userId, baseId);
+	}
+	
 	@Transactional(readOnly = true)
 	public Basket find22(int userId) {
 		 
@@ -263,14 +282,21 @@ public class ReleaseService {
 		 System.out.println("product_name=" + release.getUname());
 		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());*/
+
+
 		 ItemRepository.save_test(release);	
-		 int baseId = ItemRepository.save_test2();	
+		 int baseId = ItemRepository.save_test2();
+		 release.setId(baseId);
+		 System.out.println("QQ" +  release);
+		// int baseId = ItemRepository.save_test2();	
 		 List<Basket> test = ItemRepository.findBybasket2(user);
 			for(int i=0; i<test.size(); i++)
 			{
 				
 				Basket te = test.get(i);
+				te.setBaseId(baseId);
 				System.out.println(test.get(i));
+				
 				ItemRepository.basket_count(te);	
 			}
 		System.out.println("test"+baseId+ " " +release.getUserId());

@@ -41,4 +41,5 @@ public interface ReleaseRepository {
 	public void basket_count(Basket basket);
 	public int save_test2();
 	public void update_baseid(int baseId, int userId);
+	public List<Basket> findBybasket3(int userId, int baseId);
 }

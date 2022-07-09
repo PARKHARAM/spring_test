@@ -30,8 +30,8 @@
 		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId})
 	</insert>	
 	<insert id="basket_count">
-		INSERT INTO basket_count (uname,  product,price_count ,price, total_price, product_n,userId)
-		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId})
+		INSERT INTO basket_count (uname,  product,price_count ,price, total_price, product_n,userId, baseId)
+		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId}, #{baseId})
 	</insert>
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
 		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)
@@ -85,6 +85,12 @@
 		SELECT * FROM basket WHERE uname LIKE #{user};
 
 	</select>
+	
+	<select id="findBybasket3" resultType="com.mary.blog.model.Basket_count">
+		SELECT * FROM basket_count WHERE userId LIKE #{userId} AND baseId Like #{baseId} ;
+
+	</select>
+	
 	<update id="update">
 		update basket set price_count=#{price_count}, total_price=#{total_price} 
 		where id=#{id}

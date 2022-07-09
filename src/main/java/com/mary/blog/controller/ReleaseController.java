@@ -195,8 +195,8 @@ public class ReleaseController {
 		//ReleaseDto t = testService.find_detail(id);
 		//testService.save_basket_count(bk, product, t.getUname(), id);
 		System.out.println("sssss"+id);
-		model.addAttribute("basket_list",testService.detail_basket(ids2));
-		model.addAttribute("total", testService.getTotal(id) );
+		model.addAttribute("basket_list",testService.detail_basket2(ids2 , id ));
+		//model.addAttribute("total", testService.getTotal2(ids2, id) );
 		System.out.println(model);
 		ids = id;
 
@@ -251,7 +251,7 @@ public class ReleaseController {
 		//int a = ItemRepository.save_test2();
 		//System.out.println(a);
 		System.out.println("ids-"+ ids + baseid);
-		testService.save_test_baseId(baseid,rel.getUserId());
+		//testService.save_test_baseId(baseid,rel.getUserId());
 		//ReleaseDto t = testService.find_detail(ids);
 		//testService.save_basket_count(bk, product, t.getUname(), ids);
 		//model.addAttribute("ReleaseDto", testService.findname2(x, product));
