@@ -116,7 +116,7 @@
 	</select>
 	
 	<select id="find_name"  resultType="com.mary.blog.model.Basket">
-			SELECT * FROM basket WHERE  userId LIKE #{userId}  limit 1;
+			SELECT * FROM user  WHERE  id LIKE #{userId} ;
 	</select>
 	
 	

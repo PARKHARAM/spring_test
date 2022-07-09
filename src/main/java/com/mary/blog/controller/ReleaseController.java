@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
+import com.mary.blog.model.Basket_count;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
 import com.mary.blog.repository.ReleaseRepository;
@@ -147,6 +148,7 @@ public class ReleaseController {
 	@GetMapping("/post/test222/{id}")
 	public String getPost_basket_order(@PathVariable int id, Model model) {
 		model.addAttribute("basket_list",testService.detail_basket(id));
+		model.addAttribute("name",testService.find_name(id));
 		model.addAttribute("total", testService.getTotal(id) );
 		System.out.println(model);
 		return "post/basket_order";
@@ -182,6 +184,7 @@ public class ReleaseController {
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost(@PathVariable int id, Model model) {
+		
 		model.addAttribute("payment_detail",testService.detail(id));
 		return "post/detail_list";
 	}
@@ -192,9 +195,12 @@ public class ReleaseController {
 		model.addAttribute("payment_list",testService.find_detail(id));
 		ids2 = UserController.id;
 		
+		Basket names = testService.find_name(ids2);
+		System.out.println(ids2);
 		//ReleaseDto t = testService.find_detail(id);
 		//testService.save_basket_count(bk, product, t.getUname(), id);
-		System.out.println("sssss"+id);
+		System.out.println("sssss"+id + "GG" + names.getUname());
+		model.addAttribute("name",testService.find_name(ids2));
 		model.addAttribute("basket_list",testService.detail_basket2(ids2 , id ));
 		//model.addAttribute("total", testService.getTotal2(ids2, id) );
 		System.out.println(model);

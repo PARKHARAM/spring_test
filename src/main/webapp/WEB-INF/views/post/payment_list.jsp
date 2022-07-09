@@ -197,7 +197,7 @@
 				<ul>
 					<li>
 						<label for="uname" class="title">이름</label>
-						<input type="text" name="uname" value="${payment_list.uname}" readonly>
+						<input type="text" name="uname" value="${name.uname}" readonly>
 					</li>
 					<li>
 						<label for="tel1" class="title">연락처</label>

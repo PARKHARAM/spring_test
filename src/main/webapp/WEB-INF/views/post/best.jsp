@@ -48,7 +48,7 @@
 	  <div class="card-body" >
 	  	<a href="/post/color/ivory"><img src="/images/ivory2.png" alt=""  width="150px;"></a>
 		 <a href="/post/color/ivory"><h4 class="card-title">ivory T-shirt</h4></a>
-	    <p class="card-text">29,000원</p>
+	    <p class="card-text">15,000원</p>
 
 	  </div>
 	</div>
