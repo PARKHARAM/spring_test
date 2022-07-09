@@ -18,7 +18,7 @@
       
       application_id: "59a4d323396fa607cbe75de4",
  
-      name:  "${Basket.product}", //결제창에서 보여질 이름
+      name:  "${Basket.product}"+" 외" , //결제창에서 보여질 이름
       pg: 'nicepay',
       method: '', //결제수단, 입력하지 않으면 결제수단 선택부터 화면이 시작합니다.
       show_agree_window: 0,

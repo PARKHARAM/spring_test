@@ -12,6 +12,7 @@ import com.mary.blog.repository.ItemRepository;
 import com.mary.blog.repository.ReleaseRepository;
 import com.mary.blog.repository.UserRepository;
 import com.mary.blog.controller.dto.BasketDto;
+import com.mary.blog.controller.dto.Basket_countDto;
 import com.mary.blog.controller.dto.ItemRespDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
@@ -119,6 +120,7 @@ public class ReleaseService {
 	@Transactional(readOnly = true)
 	public ReleaseDto find_detail(int id) {
 		 System.out.println(id);
+	 
 		 return  ItemRepository.find_detail(id);
 	}
 	
@@ -151,10 +153,15 @@ public class ReleaseService {
 		 return sum;
 	}
 	
+	@Transactional(readOnly = true)
+	public Basket find_name(int userId)
+	{
+		return  ItemRepository.find_name(userId);
+	}
 	
 	@Transactional(readOnly = true)
 	public List<Basket> detail_basket(int userId) {
-		 
+
 		 return ItemRepository.findBybasket(userId);
 	}
 	@Transactional(readOnly = true)
@@ -238,7 +245,7 @@ public class ReleaseService {
 	
 	
 	@Transactional
-	public void save_test(Release release, String product, String user, int num) {
+	public int save_test(Release release, String product, String user, int num) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
 		/*
 		 ReleaseDto test = ItemRepository.find2(product);		
@@ -257,7 +264,50 @@ public class ReleaseService {
 		 System.out.println("product_n =" + release.getProduct_n());
 		 System.out.println("TNEW" + release.getProduct());*/
 		 ItemRepository.save_test(release);	
+		 int baseId = ItemRepository.save_test2();	
+		 List<Basket> test = ItemRepository.findBybasket2(user);
+			for(int i=0; i<test.size(); i++)
+			{
+				
+				Basket te = test.get(i);
+				System.out.println(test.get(i));
+				ItemRepository.basket_count(te);	
+			}
+		System.out.println("test"+baseId+ " " +release.getUserId());
+		// ItemRepository.update_baseid(baseId, release.getUserId());	
+		 return baseId;
+	}
 	
+	
+	@Transactional
+	public void save_basket_count(Basket basket, String product, String user, int id) {
+		//System.out.println(basket.getProduct());
+		//product = basket.getProduct();
+		List<Basket> test = ItemRepository.findBybasket2(user);
+		for(int i=0; i<test.size(); i++)
+		{
+			
+			Basket te = test.get(i);
+			System.out.println(test.get(i));
+			ItemRepository.basket_count(te);	
+		}
+		System.out.println("test"+test+ " id"+id + user);
+		//System.out.println(user);
+		//basket.setUname(user);
+		//basket.setProduct_n(test.getId());
+		//basket.setTotal_price(test.getPrice());
+		//basket.setProduct(test.getProduct());
+		//basket.setPrice_count(num);
+		//basket.setPrice(test.getPrice());
+		//System.out.println(basket);
+		//ItemRepository.save_basket(basket);	
+	}
+
+	public void save_test_baseId(int baseId, int userId) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("test2222"+baseId+ " " +userId);
+		ItemRepository.update_baseid(baseId, userId);	
 	}
 	
 

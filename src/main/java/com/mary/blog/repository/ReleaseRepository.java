@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.mary.blog.controller.dto.BasketDto;
+import com.mary.blog.controller.dto.Basket_countDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
@@ -34,5 +35,10 @@ public interface ReleaseRepository {
 	public Basket find_have(String product, int userId);
 	public void update_basket(int count_sum, int price_sum, String product, int userId);
 	public Basket find22(int userId);
-	public void save_test(Release release);
+	public Basket find_name(int userId);
+	public int save_test(Release release);
+	public List<Basket> findBybasket2(String user);
+	public void basket_count(Basket basket);
+	public int save_test2();
+	public void update_baseid(int baseId, int userId);
 }

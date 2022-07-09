@@ -229,20 +229,27 @@
   <table class="table table-striped">
     <thead>
       <tr>
-      	<th>구매 날짜</th>
       	<th>상품 명</th>
         <th>구매 수량</th>
+        <th>가격</th>
         <th>총 가격</th>
       </tr>
     </thead>
     <tbody>
 
+   	<c:forEach var="payment_list" items="${basket_list}">
       <tr>
-      	<td><fmt:formatDate value="${payment_list.date }" pattern="yyyy-MM-dd"/></td>
-      	<td>${payment_list.product}</td>
+      	
+        <td><a href="/post/detail/${payment_list.id}">${payment_list.product}</a></td>
         <td>${payment_list.price_count}</td>
-        <td>${payment_list.total_price}</td>
+        <td>${payment_list.price}</td>
+        <td>${payment_list.id} ${payment_list.total_price}</td>
       </tr>
+      </c:forEach>
+
+
+
+
 
       <tr>
     </tbody>

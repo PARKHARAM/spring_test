@@ -30,6 +30,7 @@ public class UserController {
 	private UserService userService;
 	private ReleaseService testService;
     public static  String x; 
+    public static int id;
 	@PostMapping("auth/joinProc")
 	public @ResponseBody CommonRespDto<?> joinProc(@RequestBody User user) { //key-value 데이터가 아님
 		userService.회원가입(user);
@@ -50,6 +51,7 @@ public class UserController {
 			System.out.println("id?"+persistUser);
 			String na = persistUser.getUname();
 			System.out.println("id?"+na);
+			id = persistUser.getId();
 			x = na;
 			//userService.로그인2(na);
 			

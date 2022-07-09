@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mary.blog.controller.dto.CommonRespDto;
+import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
@@ -38,7 +39,7 @@ public class ReleaseController {
     private Basket bk2;
     public static int num;
     private int ids;
-    
+    private int ids2;
     
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
@@ -134,8 +135,11 @@ public class ReleaseController {
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost_basket(@PathVariable int id, Model model) {
 		model.addAttribute("basket_list",testService.detail_basket(id));
+		model.addAttribute("name",testService.find_name(id));
 		model.addAttribute("total", testService.getTotal(id) );
 		System.out.println(model);
+		
+		 
 		ids = id;
 		return "post/basket";
 	}
@@ -186,6 +190,18 @@ public class ReleaseController {
 	// /post/{id} -> 파라메터를 받는 것
 	public String getPost2(@PathVariable int id, Model model) {
 		model.addAttribute("payment_list",testService.find_detail(id));
+		ids2 = UserController.id;
+		
+		//ReleaseDto t = testService.find_detail(id);
+		//testService.save_basket_count(bk, product, t.getUname(), id);
+		System.out.println("sssss"+id);
+		model.addAttribute("basket_list",testService.detail_basket(ids2));
+		model.addAttribute("total", testService.getTotal(id) );
+		System.out.println(model);
+		ids = id;
+
+		
+		
 		return "/post/payment_list";
 	}
 	/*
@@ -229,7 +245,15 @@ public class ReleaseController {
 	public String postrelease3a2(Release release, Model model) {
 		x = UserController.x;
 		product = ItemController.product;
-		testService.save_test(rel, product, x, num);
+		int baseid = testService.save_test(rel, product, x, num);
+		
+		//testService.save_test_baseId(rel, product, x, num);
+		//int a = ItemRepository.save_test2();
+		//System.out.println(a);
+		System.out.println("ids-"+ ids + baseid);
+		testService.save_test_baseId(baseid,rel.getUserId());
+		//ReleaseDto t = testService.find_detail(ids);
+		//testService.save_basket_count(bk, product, t.getUname(), ids);
 		//model.addAttribute("ReleaseDto", testService.findname2(x, product));
 		return "post/test";
 	}

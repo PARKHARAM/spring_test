@@ -247,8 +247,8 @@
 				<legend>개인 정보</legend>
 				<ul>
 					<li>
-						<label for="uname" class="title">이름</label>
-						<input type="text" name="uname" value="a" readonly>
+						<label for="uname" class="title">이름2</label>
+						<input type="text" name="uname" value="${name.uname}" readonly>
 					</li>
 					<li>
        					<label for="tel" class="title">연락처</label>

@@ -7,10 +7,20 @@
 		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
 		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(),#{userId} )
 	</insert>
+	
+	
 	<insert id="save_test">
 		INSERT INTO release_t (postcode, address, product,tel, total_price , date, userId, request)
 		VALUES(#{postcode},#{address}, #{product}, #{tel}, #{total_price},  now(), #{userId}, #{request} )
 	</insert>
+	
+	<select id="save_test2" resultType="_int">
+		SELECT LAST_INSERT_ID() As t;
+	</select>
+	
+	
+	
+	
 	<insert id="save_b">
 		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
 		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId})
@@ -19,7 +29,10 @@
 		INSERT INTO basket (uname,  product,price_count ,price, total_price, product_n,userId)
 		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId})
 	</insert>	
-	
+	<insert id="basket_count">
+		INSERT INTO basket_count (uname,  product,price_count ,price, total_price, product_n,userId)
+		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId})
+	</insert>
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
 		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)
 	</select>
@@ -68,6 +81,10 @@
 		SELECT * FROM basket WHERE userId LIKE #{userId};
 
 	</select>
+	<select id="findBybasket2" resultType="com.mary.blog.model.Basket">
+		SELECT * FROM basket WHERE uname LIKE #{user};
+
+	</select>
 	<update id="update">
 		update basket set price_count=#{price_count}, total_price=#{total_price} 
 		where id=#{id}
@@ -83,10 +100,21 @@
 		update basket set price_count=#{count_sum}, total_price=#{price_sum} 
 		WHERE product LIKE #{product} AND userId LIKE #{userId};
 	</update>
+	
+	<update id="update_baseid">
+			update basket_count SET baseId=#{baseId} WHERE userId LIKE #{userId};
+	</update>
 
 	<select id="find22"  resultType="com.mary.blog.model.Basket">
 			SELECT * FROM basket WHERE  userId LIKE 5  limit 1;
 	</select>
+	
+	<select id="find_name"  resultType="com.mary.blog.model.Basket">
+			SELECT * FROM basket WHERE  userId LIKE #{userId}  limit 1;
+	</select>
+	
+	
+	
 </mapper>
 
 
