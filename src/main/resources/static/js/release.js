@@ -73,6 +73,7 @@ let index={
 		basket_order_save : function(){
 			let data={
 					userId:$("#userId").val(),
+					uname:$("#uname").val(),
 					postcode:$("#sample6_postcode").val(),
 					address:$("#sample6_address").val() + $("#sample6_detailAddress").val() + $("#sample6_extraAddress").val(),
 					tel:$("#tel").val(),
