@@ -257,6 +257,7 @@ public class ReleaseController {
 		//int a = ItemRepository.save_test2();
 		//System.out.println(a);
 		System.out.println("ids-"+ ids + baseid);
+		testService.basket_delete_all(ids);
 		//testService.save_test_baseId(baseid,rel.getUserId());
 		//ReleaseDto t = testService.find_detail(ids);
 		//testService.save_basket_count(bk, product, t.getUname(), ids);
@@ -264,6 +265,31 @@ public class ReleaseController {
 		return "post/test";
 	}
     
+	
+	@PostMapping("/post/delete_basket")
+	public @ResponseBody CommonRespDto<?> joinProc43(@RequestBody Basket basket) { //key-value 데이터가 아님
+		x = UserController.x;
+		product = ItemController.product;
+		//testService.test(release, product, x);
+		bk = basket;
+		System.out.println("bk" + bk + x + product);
+		testService.basket_delete(basket);
+		
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
+	
+	@PostMapping("/post/deleteall_basket")
+	public @ResponseBody CommonRespDto<?> joinProc432(@RequestBody Basket basket) { //key-value 데이터가 아님
+		x = UserController.x;
+		product = ItemController.product;
+		//testService.test(release, product, x);
+		bk = basket;
+		System.out.println("ids-="+ ids );
+		System.out.println("bk" + bk + x + product);
+		testService.basket_delete_all(ids);
+		
+		return new CommonRespDto<String>(1,"회원 가입 성공");
+	}
 }
 
 

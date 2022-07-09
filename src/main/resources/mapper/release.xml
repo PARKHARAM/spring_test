@@ -118,9 +118,12 @@
 	<select id="find_name"  resultType="com.mary.blog.model.Basket">
 			SELECT * FROM user  WHERE  id LIKE #{userId} ;
 	</select>
-	
-	
-	
+	<delete id=	"basket_delete">
+		DELETE FROM basket WHERE product LIKE #{product} AND userId Like #{userId};
+	</delete>
+	<delete id=	"basket_delete_all">
+		DELETE FROM basket WHERE userId Like #{userId};
+	</delete>
 </mapper>
 
 

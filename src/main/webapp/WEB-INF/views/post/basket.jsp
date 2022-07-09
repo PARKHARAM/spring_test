@@ -80,9 +80,63 @@ function change () {
 	  return nq;
 	  
   }
+  
+  function delete_click(clicked_id)
+  {
+	  var nq= document.getElementById(clicked_id).value;
+	  var tq="ppos148";
+	  let data={
+			    id : clicked_id,
+				userId:$("#userId").val(),
+				product:$("#product").val(),
+				total_price:$("#total").val()	
+			};
+		$.ajax({
+			type: "POST",
+			url: "/post/delete_basket",
+			data: JSON.stringify(data),
+			contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
+			dataType : "json"	
+		}).done(function(resp){
+			console.log(resp);
+			alert(data.product +"상품이 삭제 되었습니다");
+			location.href="/post/basket/"+data.userId;
+		}).fail(function(error){
+			console.log(error);
+			alert("회원가입 실패2");
+		});
+      alert(nq+"tes"+ clicked_id + data.price_count + data.product);
+      
+  }
+  function deleteall_click()
+  {
+
+	  let data={
+			   
+				userId:$("#userId").val(),
+				product:$("#product").val(),
+				total_price:$("#total").val()	
+			};
+		$.ajax({
+			type: "POST",
+			url: "/post/deleteall_basket",
+			data: JSON.stringify(data),
+			contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
+			dataType : "json"	
+		}).done(function(resp){
+			console.log(resp);
+			alert("전체 상품이 삭제 되었습니다");
+			location.href="/post/basket/"+data.userId;
+		}).fail(function(error){
+			console.log(error);
+			alert("회원가입 실패2");
+		});
+      
+      
+  }
 </script>
 <input id="userId" type="hidden" value="${sessionScope.principal.id}">
-<input id="product"  type="hidden" value="pink-T">
+
 
 <body onload="init();"> 
 
@@ -91,11 +145,12 @@ function change () {
   <table class="table table-striped">
     <thead>
       <tr>
-      	<th>주문 날짜</th>
+      	
         <th>상품명</th>
         <th>수량</th>
         <th>수량 변경</th>
         <th>주문 금액</th>
+        <th>삭제</th>
       </tr>
     </thead>
     <tbody>
@@ -107,7 +162,7 @@ function change () {
        <c:set var="ppo" value="${num}"/>
        <c:set var="q" value="ppo${basket_list.id}"/>
       <tr> 
-      	<td><input type="text" value="${num}" ></td>
+      <input id="product"  type="hidden" value=${basket_list.product}>
         <td><a href="/post/detail/${basket_list.id}">${basket_list.product}</a></td>
         
         <td><input type="text" name="amount" id="quantity"  value="${basket_list.price_count}" size="3" onchange="change();"></td>
@@ -126,7 +181,7 @@ function change () {
   <option value="10">10</option>
 </select></td>
         <td><input type="text" id="total" name="sum" size="11" value="${basket_list.total_price}" readonly></td>
-		
+		<td><button onclick="delete_click(${basket_list.id})">삭제</button></td> 
 		
       </tr>
       </c:forEach>
@@ -145,6 +200,7 @@ function change () {
 <center><input type="text" id="totals" size="11" value="${total}" readonly>원
 
  <a href="/post/test222/5"><button type="button" class="btn btn-primary">구매</button></a>
+ <button onclick="deleteall_click()">전체 삭제</button>
 </center>
 
 

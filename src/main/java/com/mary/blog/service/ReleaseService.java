@@ -201,6 +201,16 @@ public class ReleaseService {
 		ItemRepository.update(test);
 		System.out.println("test after  " + test);
 	}
+	
+	@Transactional
+	public void basket_delete(Basket basket) {
+		ItemRepository.basket_delete(basket.getProduct(), basket.getUserId());
+		System.out.println("update222  "+basket);
+		//test.setPrice_count(basket.getPrice_count());
+		//test.setTotal_price(test.getPrice()*basket.getPrice_count());
+		//ItemRepository.update(test);
+		System.out.println("test afte111r  " );
+	}
 
 	public boolean search_basket(String product, int UserId) {
 		// TODO Auto-generated method stub
@@ -334,6 +344,12 @@ public class ReleaseService {
 		
 		System.out.println("test2222"+baseId+ " " +userId);
 		ItemRepository.update_baseid(baseId, userId);	
+	}
+
+	public void basket_delete_all(int ids) {
+		// TODO Auto-generated method stub
+		System.out.println("idididid"+ids);
+		ItemRepository.basket_delete_all(ids);
 	}
 	
 

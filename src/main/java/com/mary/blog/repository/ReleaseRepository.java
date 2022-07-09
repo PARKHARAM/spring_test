@@ -42,4 +42,6 @@ public interface ReleaseRepository {
 	public int save_test2();
 	public void update_baseid(int baseId, int userId);
 	public List<Basket> findBybasket3(int userId, int baseId);
+	public void basket_delete(String product, int userId);
+	public void basket_delete_all(int userId);
 }
