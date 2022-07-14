@@ -123,8 +123,9 @@ function change () {
 </script>
 <input id="userId" type="hidden" value="${sessionScope.principal.id}">
 <input id="product" type="hidden" value="pink-T">
+<input id="ids" type="hidden" value="9">
 <form name="form" method="get">
-수량 : <input type=hidden name="sell_price" value="25000">
+수량 : <input type=hidden id="price" name="sell_price" value="25000">
 <input type="text" name="amount" id="quantity"  value="1" size="3" onchange="change();">
 <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
 </td>  <td class="right">

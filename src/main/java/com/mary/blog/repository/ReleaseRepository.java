@@ -9,6 +9,7 @@ import com.mary.blog.controller.dto.Basket_countDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
+import com.mary.blog.model.Item;
 import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 
@@ -44,4 +45,6 @@ public interface ReleaseRepository {
 	public List<Basket> findBybasket3(int userId, int baseId);
 	public void basket_delete(String product, int userId);
 	public void basket_delete_all(int userId);
+	public Item find_name_t(String product);
+	public void basket_count2(Release release);
 }

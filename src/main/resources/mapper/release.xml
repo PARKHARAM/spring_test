@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mary.blog.repository.ReleaseRepository">
 	<insert id="save">
-		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
-		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(),#{userId} )
+		INSERT INTO release_t (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId, request)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(),#{userId} , #{request} )
 	</insert>
 	
 	
@@ -22,8 +22,8 @@
 	
 	
 	<insert id="save_b">
-		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId)
-		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId})
+		INSERT INTO release_b (uname,postcode, address, product,price_count ,tel, total_price ,product_n, date, userId, request)
+		VALUES(#{uname},#{postcode},#{address}, #{product}, #{price_count} ,#{tel}, #{total_price}, #{product_n}, now(), #{userId}, #{request})
 	</insert>
 	<insert id="save_basket">
 		INSERT INTO basket (uname,  product,price_count ,price, total_price, product_n,userId)
@@ -32,6 +32,11 @@
 	<insert id="basket_count">
 		INSERT INTO basket_count (uname,  product,price_count ,price, total_price, product_n,userId, baseId)
 		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId}, #{baseId})
+	</insert>
+	
+	<insert id="basket_count2">
+		INSERT INTO basket_count (uname,  product,price_count ,price, total_price, product_n,userId, baseId)
+		VALUES(#{uname}, #{product}, #{price_count}, #{price} , #{total_price}, #{product_n}, #{userId}, #{id})
 	</insert>
 	<select id="nameupdate" resultType="com.mary.blog.model.Release">
 		UPDATE release_t SET uname =(SELECT uname FROM test_s WHERE pri=release_t.id)
@@ -44,6 +49,8 @@
 	<select id="find2" resultType="com.mary.blog.controller.dto.ReleaseDto">
 			SELECT product, price, id FROM item WHERE product LIKE #{product};
 	</select>
+	
+	
 
 	<select id="findname" resultType="com.mary.blog.controller.dto.ReleaseDto">
 			SELECT * FROM user WHERE username LIKE #{username};
@@ -113,6 +120,10 @@
 
 	<select id="find22"  resultType="com.mary.blog.model.Basket">
 			SELECT * FROM basket WHERE  userId LIKE 5  limit 1;
+	</select>
+	
+	<select id="find_name_t"  resultType="com.mary.blog.model.Item">
+			SELECT price, id FROM item  WHERE  product LIKE #{product} ;
 	</select>
 	
 	<select id="find_name"  resultType="com.mary.blog.model.Basket">

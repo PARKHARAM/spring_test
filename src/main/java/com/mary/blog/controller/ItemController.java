@@ -37,7 +37,7 @@ public class ItemController {
 		model2.addAttribute("items", testService.getUserList());
 		return "item";
 	}
-    
+    /*
     @GetMapping("/post/buy")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
@@ -46,7 +46,7 @@ public class ItemController {
 		model.addAttribute("test", ReleaseController.num);
 		System.out.println("TTSS"+ReleaseController.num + model);
 		return "post/buy";
-	}
+	}*/
     /*
 	@GetMapping("/post/buy/{id}")
 	//?주소 -> 쿼리스트링 받는 것
@@ -57,6 +57,8 @@ public class ItemController {
 		return "post/buy";
 	}
 	*/
+    
+    /*
 	@GetMapping("/post/color/{id}")
 	//?주소 -> 쿼리스트링 받는 것
 	// /post/{id} -> 파라메터를 받는 것
@@ -69,7 +71,7 @@ public class ItemController {
 		//t.test(null, product, null);
 		return "post/release";
 	}
-
+*/
 
     
     /*

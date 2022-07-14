@@ -26,4 +26,6 @@ public class Release {
 	private int userId;
 	private String request;
 	private String tracking_number;
+	private int price;
+	private int baseId;
 }

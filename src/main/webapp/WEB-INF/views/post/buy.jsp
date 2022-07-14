@@ -8,7 +8,7 @@
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
 
 <script>
- 	var price = ${test}*${ItemRespDto.price};
+ 	var price = ${ItemRespDto.total_price};
 
   BootPay.request({
 	  

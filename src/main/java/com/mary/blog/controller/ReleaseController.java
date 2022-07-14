@@ -16,6 +16,7 @@ import com.mary.blog.controller.dto.CommonRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
 import com.mary.blog.model.Basket_count;
+import com.mary.blog.model.Item;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
 import com.mary.blog.repository.ReleaseRepository;
@@ -36,12 +37,13 @@ public class ReleaseController {
     private String x;
     private String product;
     private Release rel;
+    private Release reles;
     private Basket bk;
     private Basket bk2;
     public static int num;
     private int ids;
     private int ids2;
-    
+
 	@GetMapping("/post/release")
 	public String postrelease(Model model) {
 		model.addAttribute("ReleaseDto", testService.test(1));
@@ -61,8 +63,10 @@ public class ReleaseController {
 	public String postrelease3(Release release, Model model) {
 		x = UserController.x;
 		product = ItemController.product;
-		testService.test(rel, product, x, num);
-		model.addAttribute("ReleaseDto", testService.findname2(x, product));
+		//testService.test(rel, product, x, num);
+		int baseid = testService.save_test2(rel, product, x, num);
+		System.out.println("ids-"+ ids + baseid);
+		model.addAttribute("ReleaseDto", rel);
 		return "post/test";
 	}
 
@@ -155,6 +159,23 @@ public class ReleaseController {
 	}
 
 	
+	
+	@GetMapping("/post/color/{id}")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost22(@PathVariable int id, Model model) {
+		
+		ids2 = UserController.id;
+		model.addAttribute("name",testService.find_name(ids2));
+		model.addAttribute("total", testService.getTotal(id) );
+		model.addAttribute("rel", testService.sv(reles, id));
+		System.out.println(ids+"QQQQQ"+model);
+		//String product = testService.test(id).getProduct();
+		//t.test(null, product, null);
+		return "post/release";
+	}
+
+	
 
 	@PostMapping("/post/num")
 	public @ResponseBody CommonRespDto<?> num(@RequestBody Release release) { //key-value 데이터가 아님
@@ -162,7 +183,8 @@ public class ReleaseController {
 		//product = ItemController.product;
 		//testService.test(release, product, x);
 		num= release.getPrice_count();
-		System.out.println(release.getPrice_count());
+		System.out.println("!!"+release);
+		 reles = release;
 		return new CommonRespDto<String>(1,"회원 가입 성공");
 	}
 	
@@ -196,11 +218,12 @@ public class ReleaseController {
 		ids2 = UserController.id;
 		
 		Basket names = testService.find_name(ids2);
-		System.out.println(ids2);
+		System.out.println("AA"+ids2);
 		//ReleaseDto t = testService.find_detail(id);
 		//testService.save_basket_count(bk, product, t.getUname(), id);
 		System.out.println("sssss"+id + "GG" + names.getUname());
 		model.addAttribute("name",testService.find_name(ids2));
+
 		model.addAttribute("basket_list",testService.detail_basket2(ids2 , id ));
 		//model.addAttribute("total", testService.getTotal2(ids2, id) );
 		System.out.println(model);
@@ -216,6 +239,17 @@ public class ReleaseController {
 		model.addAttribute("payment_list", testService.findAll());
 		return "/post/payment_list";
 	}*/
+	
+	
+    @GetMapping("/post/buy")
+	//?주소 -> 쿼리스트링 받는 것
+	// /post/{id} -> 파라메터를 받는 것
+	public String getPost34( Model model) {
+		model.addAttribute("ItemRespDto", rel);
+		System.out.println("!@@@!"+model);
+		return "post/buy";
+	}
+	
 	
     @GetMapping("/post/buy/basket")
 	//?주소 -> 쿼리스트링 받는 것

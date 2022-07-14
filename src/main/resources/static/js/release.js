@@ -22,6 +22,11 @@ let index={
 				this.basket_order_save();
 			});
 			
+			$("#btn-order").on("click",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
+				//콜백
+				this.save_order();
+			});
+			
 			/*
 			$("body").on("change", "[id^=ppo]",()=>{ //this 바인딩 할 필요 없이 바로 부모의 this를 찾음.
 				//콜백
@@ -48,9 +53,14 @@ let index={
 		save : function(){
 			let data={
 					userId:$("#userId").val(),
+					uname:$("#uname").val(),
+					total_price:$("#total").val(),
+					price_count:$("#quantity").val(),
+					request:$("#request").val(),
 					postcode:$("#sample6_postcode").val(),
 					address:$("#sample6_address").val() + $("#sample6_detailAddress").val() + $("#sample6_extraAddress").val(),
-					tel:$("#tel").val()
+					tel:$("#tel").val(),
+					product:$("#product").val()
 						
 			};
 			
@@ -99,6 +109,39 @@ let index={
 			});
 		}, //이벤트 리스닝 실제 실행 함수
 		
+		
+		
+		save_order : function(){
+			let data={
+					userId:$("#userId").val(),
+					uname:$("#uname").val(),
+					total_price:$("#totals").val(),
+					price_count:$("#quantity").val(),
+					request:$("#request").val(),
+					postcode:$("#sample6_postcode").val(),
+					address:$("#sample6_address").val() + $("#sample6_detailAddress").val() + $("#sample6_extraAddress").val(),
+					tel:$("#tel").val(),
+
+						
+			};
+			
+			$.ajax({
+				type: "POST",
+				url: "/post/basket/test",
+				data: JSON.stringify(data),
+				contentType : "application/json; charset=utf-8", //스프링의 데이터 형식 인식 -> 오브젝트 변환
+				dataType : "json"	
+			}).done(function(resp){
+				console.log(resp);
+				alert("결제페이지로 이동합니다.");
+				location.href="/post/buy/basket";
+			}).fail(function(error){
+				console.log(error);
+				alert("회원가입 실패22");
+			});
+		}, //이벤트 리스닝 실제 실행 함수
+		
+		
 
 		savebasket : function(){
 			let data={
@@ -127,8 +170,13 @@ let index={
 
 
 		num : function(){
+			var ids = $("#ids").val()
 			let data={
-					price_count:$("#quantity").val()
+					userId:$("#userId").val(),
+					total_price:$("#total").val(),
+					price_count:$("#quantity").val(),
+					request:$("#request").val()
+					
 					
 			};
 			
@@ -142,6 +190,7 @@ let index={
 			}).done(function(resp){
 				console.log(resp);
 				alert("상품 수량 확인"+ data.price_count);
+				location.href="/post/color/"+ids;
 				
 			}).fail(function(error){
 				console.log(error);

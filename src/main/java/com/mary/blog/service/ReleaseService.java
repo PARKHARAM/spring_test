@@ -17,6 +17,7 @@ import com.mary.blog.controller.dto.ItemRespDto;
 import com.mary.blog.controller.dto.PostDetailRespDto;
 import com.mary.blog.controller.dto.ReleaseDto;
 import com.mary.blog.model.Basket;
+import com.mary.blog.model.Item;
 import com.mary.blog.model.Post;
 import com.mary.blog.model.Release;
 import com.mary.blog.model.User;
@@ -82,7 +83,7 @@ public class ReleaseService {
 		 System.out.println("tpss"+product2.getId());
 		 ReleaseDto test = ItemRepository.finduser(uname, product2.getId());
 		 //ReleaseDto test = ItemRepository.finduser("ppoo", 7);
-		 System.out.println("tps"+test.getUname());
+		 //System.out.println("tps"+test.getUname());
 		 System.out.println("tp"+test.getProduct_n());
 		 System.out.println(test.getTotal_price());
 		 return test;
@@ -93,21 +94,7 @@ public class ReleaseService {
 	public void test(Release release, String product, String user, int num) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
 		
-		 ReleaseDto test = ItemRepository.find2(product);		
-		 
-		 //ReleaseDto test2 = ItemRepository.findname("gkfka133");
-		 
 
-		 System.out.println("product_n =" + release.getTotal_price());
-		 //release.setUname(test2.getUname());
-		 release.setUname(user);
-		 release.setProduct_n(test.getId());
-		 release.setTotal_price(test.getPrice()*num);
-		 release.setProduct(test.getProduct());
-		 release.setPrice_count(num);
-		 System.out.println("product_name=" + release.getUname());
-		 System.out.println("product_n =" + release.getProduct_n());
-		 System.out.println("TNEW" + release.getProduct());
 		 ItemRepository.save(release);	
 		 ItemRepository.save_b(release);	
 	}
@@ -152,12 +139,36 @@ public class ReleaseService {
 		 }
 		 return sum;
 	}
+	@Transactional(readOnly = true)
+	public Release sv(Release rel, int id )
+	{
+		 ItemRespDto test = ItemRepository2.findById(id);
+		 
+		 rel.setProduct(test.getProduct());
+		 
+		 System.out.println(test.getPrice());
+		 System.out.println(test.getId());
+		
+		
+		return  rel; 
+	}
+	
+
+	
 	
 	@Transactional(readOnly = true)
 	public Basket find_name(int userId)
 	{
 		return  ItemRepository.find_name(userId);
 	}
+	@Transactional(readOnly = true)
+	public Item find_name_t(String product)
+	{
+		return  ItemRepository.find_name_t(product);
+	}
+	
+	
+	
 	
 	@Transactional(readOnly = true)
 	public List<Basket> detail_basket(int userId) {
@@ -313,6 +324,53 @@ public class ReleaseService {
 		// ItemRepository.update_baseid(baseId, release.getUserId());	
 		 return baseId;
 	}
+	
+	
+	@Transactional
+	public int save_test2(Release release, String product, String user, int num) {
+		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
+		/*
+		 ReleaseDto test = ItemRepository.find2(product);		
+		 
+		 //ReleaseDto test2 = ItemRepository.findname("gkfka133");
+		 
+
+		 System.out.println("product_n =" + release.getTotal_price());
+		 //release.setUname(test2.getUname());
+		 release.setUname(user);
+		 release.setProduct_n(test.getId());
+		 release.setTotal_price(test.getPrice()*num);
+		 release.setProduct(test.getProduct());
+		 release.setPrice_count(num);
+		 System.out.println("product_name=" + release.getUname());
+		 System.out.println("product_n =" + release.getProduct_n());
+		 System.out.println("TNEW" + release.getProduct());*/
+		ItemRepository.save_b(release);	
+		 ItemRepository.save(release);	
+		 Item a =  find_name_t(release.getProduct());
+		 int baseId = ItemRepository.save_test2();
+		 release.setId(baseId);
+		 System.out.println("QQq" +  release);
+		 
+		 release.setPrice(a.getPrice());
+		 ItemRepository.basket_count2(release);
+		// int baseId = ItemRepository.save_test2();	
+		/* List<Basket> test = ItemRepository.findBybasket2(user);
+			for(int i=0; i<test.size(); i++)
+			{
+				
+				Basket te = test.get(i);
+				te.setBaseId(baseId);
+				System.out.println(test.get(i));
+				
+				ItemRepository.basket_count(te);	
+			}*/
+		System.out.println("test"+baseId+ " " +release.getUserId());
+		// ItemRepository.update_baseid(baseId, release.getUserId());	
+		 return baseId;
+	}
+	
+	
 	
 	
 	@Transactional

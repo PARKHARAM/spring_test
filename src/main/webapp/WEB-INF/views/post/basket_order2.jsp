@@ -248,7 +248,7 @@
 				<ul>
 					<li>
 						<label for="uname" class="title">이름2</label>
-						<input type="text" id="uname" name="uname" value="${name.uname}" readonly>
+						<input type="text" name="uname" value="${name.uname}" readonly>
 					</li>
 					<li>
        					<label for="tel" class="title">연락처</label>
@@ -281,28 +281,32 @@
   <table class="table table-striped">
     <thead>
        <tr>
-
         <th>상품명</th>
         <th>수량</th>
+        <th>수량 변경</th>
         <th>주문 금액</th>
       </tr>
     </thead>
     <tbody>
 
-
-
+         <c:forEach var="basket_list" items="${basket_list}">
+       <c:set var="num" value="${num+1 }" />
+	 
+	  	
+       <input type=hidden name="${num}" value="${basket_list.price}">
+       <c:set var="ppo" value="${num}"/>
+       <c:set var="q" value="ppo${basket_list.id}"/>
       <tr> 
-
-        <td><input type="text" id="product" name="sum" size="11" value="${rel.product}" readonly></td>
+        <td><a href="/post/detail/${basket_list.id}">${basket_list.product}</a></td>
         
-        <td><input type="text" name="amount" id="quantity"  value="${rel.price_count}" size="3" onchange="change();"></td>
+        <td><input type="text" name="amount" id="quantity"  value="${basket_list.price_count}" size="3" onchange="change();"></td>
 
 
-        <td><input type="text" id="total" name="sum" size="11" value="${rel.total_price}" readonly></td>
+        <td><input type="text" id="total" name="sum" size="11" value="${basket_list.total_price}" readonly></td>
 		
 		
       </tr>
-
+      </c:forEach>
 
       <tr>
     </tbody>
@@ -311,8 +315,9 @@
 			</fieldset>
 			<div class="centered">
 				<input id="userId" type="hidden" value="${sessionScope.principal.id}">
-				<button id="btn-save" type="button" class="btn btn-primary">구매</button>
+				<button id="btn-save-basket-order" type="button" class="btn btn-primary">구매</button>
 				<input type="button" value="뒤로 가기" onClick="history.go(-1)">
+				<input type="text" id="total" size="11" value="${total}" readonly>원
 
 				    <div id="SLB_film" style="z-index: 99997; position: absolute; display: none; width: 1559px; height: 1297px; background-color: rgb(0, 0, 0); opacity: 0.6;">
 	<!-- background-color:#000000; filter:Alpha(opacity=20); opacity:0.6; -moz-opacity:0.6;는 투명도 조절용 --></div>  

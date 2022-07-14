@@ -27,4 +27,5 @@ public class ReleaseDto {
 	private int userId;
 	private String request;
 	private String tracking_number;
+	private int baseId;
 }
